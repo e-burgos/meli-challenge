@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+Verify alignment with `functional/.specify/memory/constitution.md`:
+
+- **I. Nx project structure**: frontend app, backend app, ui-components lib; frontend consumes `@meli-challenge/ui-components`.
+- **II. Stack compliance**: Frontend (React, TypeScript, Tailwind v4, Vite, Nx, pnpm); Backend (Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm).
+- **III. API contract and persistence**: List products + product detail endpoints; file-based persistence (JSON/CSV only).
+- **IV. Design references and UX**: Home and product detail reference Meli URLs; responsive, user-friendly; no recommendations/checkout.
+- **V. Quality gate**: Error handling, documentation, ≥80% coverage.
 
 ## Project Structure
 
