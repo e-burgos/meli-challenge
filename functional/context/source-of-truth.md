@@ -51,7 +51,7 @@ La página de detalle debe mostrar:
 ### UX y stack
 
 - Páginas **responsive** y **user-friendly**.
-- **Stack** (tecnologías de este proyecto): **React**, **TypeScript**, **Tailwind CSS v4**, **Vite**, **Nx**, **pnpm**. Los componentes de UI se desarrollan en la lib `ui-components` y se consumen desde la app `frontend`.
+- **Stack** (tecnologías de este proyecto): **React**, **TypeScript**, **Tailwind CSS v4**, **Vite**, **Nx**, **pnpm**. Llamadas al backend: **axios** y **react-query** (TanStack Query); estado de cliente: **zustand**. Los componentes de UI se desarrollan en la lib `ui-components` y se consumen desde la app `frontend`.
 
 ---
 
@@ -66,7 +66,7 @@ La página de detalle debe mostrar:
 ### Persistencia y stack
 
 - **No usar bases de datos reales**: persistir todo en archivos locales **JSON** o **CSV**.
-- **Stack** (tecnologías de este proyecto): **Node.js**, **Express**, **TypeScript**, **Swagger/OpenAPI**, **Nx**, **pnpm**.
+- **Stack** (tecnologías de este proyecto): **Node.js**, **Express**, **TypeScript**, **Swagger/OpenAPI**, **Nx**, **pnpm**. Llamadas HTTP salientes a otros servicios: **axios**.
 
 ---
 
@@ -107,8 +107,8 @@ Junto con el código, incluir un documento breve (1–2 páginas) que:
 | Área           | Entregable |
 |----------------|------------|
 | Estructura Nx  | App **frontend** (`apps/frontend`), app **backend** (`apps/backend`), lib **ui-components** (`libs/ui-components`, `@meli-challenge/ui-components`). |
-| Frontend       | **Home**: listado de productos (referencia: [mercadolibre.com.ar](https://www.mercadolibre.com.ar/)). **Detalle de ítem**: imágenes, título, descripción, precio, métodos de pago, vendedor, detalles extra (referencia: [página de producto Meli](https://www.mercadolibre.com.ar/celular-samsung-galaxy-a55-5g-2568gb-black-knox-color-negro-bueno-reacondicionado/p/MLA2009168328)). Stack: React, TypeScript, Tailwind v4, Vite, Nx, pnpm. Componentes en `ui-components`. |
-| Backend        | API REST: endpoint de **listado de productos** (home) y endpoint de **detalle de producto**; persistencia en JSON o CSV (sin DB real). Stack: Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm. |
+| Frontend       | **Home**: listado de productos (referencia: [mercadolibre.com.ar](https://www.mercadolibre.com.ar/)). **Detalle de ítem**: imágenes, título, descripción, precio, métodos de pago, vendedor, detalles extra (referencia: [página de producto Meli](https://www.mercadolibre.com.ar/celular-samsung-galaxy-a55-5g-2568gb-black-knox-color-negro-bueno-reacondicionado/p/MLA2009168328)). Stack: React, TypeScript, Tailwind v4, Vite, Nx, pnpm; axios + react-query para API; zustand para estado de cliente. Componentes en `ui-components`. |
+| Backend        | API REST: endpoint de **listado de productos** (home) y endpoint de **detalle de producto**; persistencia en JSON o CSV (sin DB real). Stack: Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm; axios para llamadas HTTP salientes. |
 | Calidad        | Error handling, documentación, ≥ 80% cobertura de tests. |
 | Documentación  | 1–2 páginas: decisiones de diseño y desafíos + soluciones. |
 | Ejecución      | `run.md` con instrucciones para correr el proyecto. |

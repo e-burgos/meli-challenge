@@ -1,13 +1,11 @@
 <!--
 Informe de impacto (Sync Impact Report)
-- Cambio de versión: (ninguna) → 1.0.0 (constitución inicial desde source-of-truth)
-- Principios modificados: N/A (placeholders del template reemplazados)
-- Secciones añadidas: Principios fundamentales (5), Restricciones adicionales, Flujo de desarrollo, Gobernanza
+- Cambio de versión: 1.0.0 → 1.1.0 (ampliación material del stack en Principio II)
+- Principios modificados: II. Cumplimiento del stack (axios, react-query, zustand en frontend; axios en backend)
+- Secciones añadidas: Ninguna nueva
 - Secciones eliminadas: Ninguna
-- Plantillas: plan-template.md (Constitution Check con gates de la constitución — ✅ actualizado);
-  spec-template.md (sin placeholders específicos de constitución — ✅ sin cambio);
-  tasks-template.md (rutas: usar apps/backend, apps/frontend, libs/ui-components según plan — ✅ alineado)
-- TODOs pendientes: Ninguno; todos los placeholders rellenados.
+- Plantillas: plan-template.md (Constitution Check con nuevo stack — ✅ actualizado); spec 001-meli-prototype (stack técnico — ✅ actualizado)
+- TODOs pendientes: Ninguno.
 -->
 
 # Constitución meli-challenge
@@ -30,8 +28,8 @@ El frontend DEBE consumir la UI desde `@meli-challenge/ui-components`; los compo
 
 Las tecnologías están fijadas para este proyecto:
 
-- **Frontend**: React, TypeScript, Tailwind CSS v4, Vite, Nx, pnpm.
-- **Backend**: Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm.
+- **Frontend**: React, TypeScript, Tailwind CSS v4, Vite, Nx, pnpm. Para llamadas al backend: **axios** como cliente HTTP y **react-query** (TanStack Query) para datos asíncronos del servidor (cache, estados loading/error). Para estado global de cliente: **zustand**.
+- **Backend**: Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm. Para llamadas HTTP salientes a otros servicios: **axios**.
 
 Las nuevas funcionalidades y apps DEBEN usar este stack; no se permiten frameworks o entornos alternativos salvo que se enmiende la constitución.
 
@@ -86,4 +84,4 @@ Las revisiones y la entrega DEBEN verificar el cumplimiento; las funcionalidades
 - **Cumplimiento**: Las puertas «Constitution Check» de los planes y las revisiones de código DEBEN verificar el cumplimiento de estos principios. Las violaciones DEBEN corregirse antes del merge o la entrega.
 - **Referencia**: Usar `functional/context/source-of-truth.md` para alcance y lista de artefactos; usar esta constitución para cómo está estructurado el proyecto y qué reglas de calidad y cumplimiento aplican.
 
-**Versión**: 1.0.0 | **Ratificada**: 2025-02-12 | **Última enmienda**: 2025-02-12
+**Versión**: 1.1.0 | **Ratificada**: 2025-02-12 | **Última enmienda**: 2025-02-12

@@ -17,6 +17,9 @@ Eres un **Senior Frontend Developer** especializado en el stack JavaScript/TypeS
 - **Nx** — Monorepo: caché, codegen, apps/libs, grafos de dependencias.
 - **Vite** — Build y dev server; integración con Nx y React.
 - **pnpm** — Gestor de paquetes; workspaces, `workspace:` y dependencias estrictas.
+- **axios** — Cliente HTTP para llamadas al backend; usar como instancia configurada (baseURL, interceptors) en lugar de `fetch` directo.
+- **react-query** (TanStack Query) — Manejo de datos asíncronos del backend: cache, refetch, estados loading/error, mutaciones; preferir sobre estado manual de requests en componentes.
+- **zustand** — Store de estado en el cliente; usar para estado global de UI o datos que no provengan solo del servidor (preferir react-query para datos del backend).
 
 ## Buenas prácticas obligatorias
 
@@ -35,6 +38,12 @@ Eres un **Senior Frontend Developer** especializado en el stack JavaScript/TypeS
 - Keys estables en listas; no usar índice como key si el orden cambia.
 - Evitar efectos innecesarios; dependencias correctas en `useEffect`.
 - Accesibilidad: semántica HTML, ARIA cuando haga falta, contraste y foco visible.
+
+### Llamadas al backend y estado de cliente
+
+- **Llamadas al backend**: Usar **axios** como cliente HTTP (instancia con `baseURL`, interceptors para auth o errores si aplica). Encapsular las peticiones en funciones o hooks que devuelvan promesas tipadas.
+- **Datos del servidor**: Usar **react-query** para todo lo que venga del backend (listados, detalle, mutaciones). Definir `queryKey` consistentes, usar `useQuery`/`useMutation`; aprovechar cache, `staleTime` y estados `isLoading`/`isError`/`data`. No duplicar en zustand los datos que react-query ya cachea.
+- **Estado de cliente (zustand)**: Usar **zustand** para estado global de UI (modales, sidebar abierto, filtros locales, preferencias) o estado que no sea reflejo directo del API. Slices o stores pequeños; evitar guardar en zustand datos que deban estar sincronizados con el servidor (esos van en react-query).
 
 ### Vite (con Nx)
 
