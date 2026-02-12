@@ -45,3 +45,8 @@ Thumbs.db
 # Nx graph output
 graph.html
 static/
+
+test-output
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*

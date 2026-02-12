@@ -17,6 +17,7 @@
 
 - **Frontend**: `apps/frontend/src/`
 - **Backend**: `apps/backend/src/`
+- **Backend mocks**: Datos de desarrollo en `apps/backend/src/data/` como archivos **`.json`** (ej. `products.json`); el backend sirve esos mocks en desarrollo; misma estructura de datos que los contratos OpenAPI.
 - **Lib ui-components**: `libs/ui-components/src/`
 - **Tests**: `apps/frontend/` y `apps/backend/` con sus respectivos tests (unit/integration/contract según proyecto Nx).
 
@@ -26,11 +27,11 @@
 
 **Purpose**: Inicialización de la estructura Nx (apps + lib) según constitución.
 
-- [ ] T001 Crear app **backend** en `apps/backend` con Nx (Node/Express), targets build/serve/test/lint.
-- [ ] T002 Crear app **frontend** en `apps/frontend` con Nx (React + Vite), targets build/serve/test/lint; configurar Tailwind v4 y paths `@meli-challenge/ui-components`.
-- [ ] T003 Crear lib **ui-components** en `libs/ui-components` con `importPath` `@meli-challenge/ui-components`; configurar build y exports; que el frontend pueda importar desde ella.
-- [ ] T004 [P] Configurar proxy del dev server del frontend hacia el backend (Vite/Nx) para evitar CORS en desarrollo.
-- [ ] T005 [P] Añadir dependencias de stack en cada proyecto: frontend (axios, react-query, zustand, react-router-dom si aplica); backend (express, swagger-ui-express o equivalente); lib ui-components (react si exporta componentes).
+- [x] T001 Crear app **backend** en `apps/backend` con Nx (Node/Express), targets build/serve/test/lint.
+- [x] T002 Crear app **frontend** en `apps/frontend` con Nx (React + Vite), targets build/serve/test/lint; configurar Tailwind v4 y paths `@meli-challenge/ui-components`.
+- [x] T003 Crear lib **ui-components** en `libs/ui-components` con `importPath` `@meli-challenge/ui-components`; configurar build y exports; que el frontend pueda importar desde ella.
+- [x] T004 [P] Configurar proxy del dev server del frontend hacia el backend (Vite/Nx) para evitar CORS en desarrollo.
+- [x] T005 [P] Añadir dependencias de stack en cada proyecto: frontend (axios, react-query, zustand, react-router-dom si aplica); backend (express, swagger-ui-express o equivalente); lib ui-components (react si exporta componentes).
 
 **Checkpoint**: Estructura Nx lista; `pnpm nx build backend`, `pnpm nx build frontend`, `pnpm nx build ui-components` ejecutables.
 
@@ -45,11 +46,11 @@
 ### Backend — Base
 
 - [ ] T006 [P] Definir tipos/interfaces **Product** y **Seller** en `apps/backend/src/` (ej. `types/product.ts`) según data-model.md y contracts/openapi.yaml.
-- [ ] T007 Crear archivo de datos `apps/backend/src/data/products.json` (o CSV) con al menos 2–3 productos de ejemplo que cumplan el schema Product/Seller.
-- [ ] T008 Implementar servicio de lectura de productos en `apps/backend/src/services/products.service.ts`: leer desde JSON/CSV, devolver listado y detalle por id; manejar id inexistente (null o throw).
+- [ ] T007 Crear mocks en `apps/backend/src/data/` como archivos **`.json`**: al menos `products.json` con 2–3 productos de ejemplo que cumplan el schema Product/Seller (data-model.md / openapi.yaml); el backend devolverá estos datos en desarrollo.
+- [ ] T008 Implementar servicio de lectura en `apps/backend/src/services/products.service.ts`: leer desde los JSON en `apps/backend/src/data/` (ej. `products.json`), devolver listado y detalle por id; manejar id inexistente (null o throw).
 - [ ] T009 Configurar Express en `apps/backend`: app, middleware (json, CORS), error handler global de 4 argumentos; puerto desde env.
-- [ ] T010 [P] Configurar rutas base `/api` y montar Swagger/OpenAPI con el spec de `contracts/openapi.yaml` (o generado desde código) en ruta `/api-docs` o similar.
-- [ ] T011 Documentar API (OpenAPI) alineada con contracts; asegurar que GET /products y GET /products/:id estén descritos.
+- [x] T010 [P] Configurar rutas base `/api` y montar Swagger/OpenAPI con el spec de `contracts/openapi.yaml` (o generado desde código) en ruta `/api-docs` o similar.
+- [x] T011 Documentar API (OpenAPI) alineada con contracts; asegurar que GET /products y GET /products/:id estén descritos.
 
 ### Frontend — Base
 
@@ -58,7 +59,7 @@
 - [ ] T014 Configurar enrutado en la app frontend: ruta home (ej. `/`) y ruta detalle (ej. `/product/:id`); estructura de páginas en `apps/frontend/src/pages/` o equivalente.
 - [ ] T015 [P] Crear en `libs/ui-components` componentes base reutilizables: al menos Button, Card, Layout (header/content); exportar desde `libs/ui-components/src/index.ts`; el frontend los importa desde `@meli-challenge/ui-components`.
 
-**Checkpoint**: Backend sirve datos desde JSON; frontend tiene routing, axios y react-query listos; ui-components consumibles desde frontend.
+**Checkpoint**: Backend sirve datos desde los mocks JSON en `apps/backend/src/data/`; frontend tiene routing, axios y react-query listos; ui-components consumibles desde frontend.
 
 ---
 
@@ -71,7 +72,7 @@
 ### Tests for User Story 1
 
 - [ ] T016 [P] [US1] Test unitario o de contrato para GET /api/products en `apps/backend`: respuesta 200, cuerpo array de productos con campos esperados (id, title, price, etc.).
-- [ ] T017 [P] [US1] Test del servicio de productos (backend): dado un archivo de datos, listProducts devuelve array; getProductById(id) devuelve producto o null según exista.
+- [ ] T017 [P] [US1] Test del servicio de productos (backend): dado los mocks en `apps/backend/src/data/*.json`, listProducts devuelve array; getProductById(id) devuelve producto o null según exista.
 - [ ] T018 [US1] Test de la página home (frontend): renderiza listado (mock de react-query o MSW); muestra estado loading/error si aplica; al menos un snapshot o aserciones de contenido.
 
 ### Implementation for User Story 1
