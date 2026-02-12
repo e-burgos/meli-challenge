@@ -23,7 +23,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 
 1. **Referenciar el subagente con @**  
    En el chat escribe `@` y el nombre del agente. Por ejemplo:
-   - Para el agente de prompts: **`@prompt-manager`** (o buscar "prompt-manager" en el desplegable).
+   - Para el agente de prompts: **`@prompt-manager`**; para frontend: **`@senior-frontend`**; para backend: **`@senior-backend`** (o buscar por nombre en el desplegable).
 
 2. **Pedir la tarea en lenguaje natural**  
    Escribe directamente lo que quieres, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que documente…"* o *"Añade un nuevo prompt en functional/prompts que…"*. Si invocas antes el subagente con `@prompt-manager`, el modelo seguirá sus instrucciones.
@@ -48,6 +48,32 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 - "Añade un prompt en functional/prompts que…"
 - "Incorpora un nuevo prompt que documente cómo…"
 - "Usa el subagente prompt-manager para…"
+
+### 2. Senior Frontend Developer — subagente `senior-frontend`
+
+**Archivo:** `.cursor/agents/senior-frontend.md`  
+**Cuándo usarlo:** Para implementar o revisar UI, componentes React, estilos (Tailwind v4), configuración de build (Vite, Nx) y buenas prácticas en el stack JS/TS del monorepo.
+
+**Stack y responsabilidad:** Experto en React, TypeScript, Node, Tailwind CSS v4, Nx, Vite y pnpm. Aplica buenas prácticas: TypeScript estricto, componentes funcionales y hooks, Vite con Nx, Tailwind v4 (CSS-first, @source en monorepo), pnpm workspaces, accesibilidad, tests y código mantenible.
+
+**Frases que activan este agente (ejemplos):**
+- "Implementa el componente…" / "Refactoriza la pantalla…"
+- "Configura Tailwind v4 en…" / "Ajusta Vite para…"
+- "Revisa el código frontend…" / "Mejora la accesibilidad de…"
+- "Usa el subagente senior-frontend para…"
+
+### 3. Senior Backend Developer — subagente `senior-backend`
+
+**Archivo:** `.cursor/agents/senior-backend.md`  
+**Cuándo usarlo:** Para crear o revisar backends, APIs REST, servicios Express, Swagger/OpenAPI, validación, middleware y configuración Nx de apps Node/Express en el monorepo.
+
+**Stack y responsabilidad:** Experto en Node.js, Express, TypeScript, Swagger/OpenAPI, validación (express-validator, Zod, JSON Schema), Nx (`@nx/node`, `@nx/express`), pnpm. Aplica buenas prácticas: TypeScript strict, rutas y controladores separados, middleware (auth, validación, error handling), documentación OpenAPI alineada con código, capa de servicios y repos, tests y uso correcto de Nx (generadores, targets, dependencias, proxies).
+
+**Frases que activan este agente (ejemplos):**
+- "Crea la API de…" / "Añade el endpoint…"
+- "Configura Swagger en…" / "Documenta la API con OpenAPI…"
+- "Revisa el backend…" / "Añade validación a…"
+- "Genera una app Express en Nx…" / "Usa el subagente senior-backend para…"
 
 ---
 
