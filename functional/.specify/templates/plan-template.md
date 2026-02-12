@@ -34,7 +34,7 @@
 Verify alignment with `functional/.specify/memory/constitution.md`:
 
 - **I. Nx project structure**: frontend app, backend app, ui-components lib; frontend consumes `@meli-challenge/ui-components`.
-- **II. Stack compliance**: Frontend (React, TypeScript, Tailwind v4, Vite, Nx, pnpm); Backend (Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm).
+- **II. Stack compliance**: Frontend (React, TypeScript, Tailwind v4, Vite, Nx, pnpm; axios + react-query para llamadas al backend; zustand para estado de cliente); Backend (Node.js, Express, TypeScript, Swagger/OpenAPI, Nx, pnpm; axios para llamadas HTTP salientes).
 - **III. API contract and persistence**: List products + product detail endpoints; file-based persistence (JSON/CSV only).
 - **IV. Design references and UX**: Home and product detail reference Meli URLs; responsive, user-friendly; no recommendations/checkout.
 - **V. Quality gate**: Error handling, documentation, ≥80% coverage.
