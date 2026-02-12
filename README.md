@@ -7,7 +7,10 @@ Monorepo Nx con **pnpm**, alias `@meli-challenge`.
 - **`apps/`** – Aplicaciones (web, API, etc.)
 - **`libs/`** – Bibliotecas compartidas
 - **`tools/`** – Herramientas y scripts (CLI, etc.)
-- **`legacy/`** – Contenido previo (Spec Kit y demás), por referencia
+- **`functional/`** – Spec Kit (spec-driven development) y prompts:
+  - **`functional/.specify/`** – Scripts, plantillas y memoria de Spec Kit
+  - **`functional/specs/`** – Especificaciones por feature (rama `001-nombre`, etc.)
+  - **`functional/prompts/`** – Prompts de generación del proyecto
 
 ## Requisitos
 

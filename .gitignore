@@ -33,7 +33,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-legacy/
+/legacy
 
 # System Files
 .DS_Store

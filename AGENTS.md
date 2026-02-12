@@ -1,66 +1,54 @@
 # Agentes del proyecto
 
-Este documento describe los **agentes específicos** configurados para tareas concretas. Cursor usa las reglas en `.cursor/rules/` para activar cada agente según el contexto o la petición del usuario.
+Este documento describe los **agentes y subagentes** configurados para tareas concretas. Los subagentes viven en `.cursor/agents/` y se invocan desde el chat o Composer.
 
-## Desplegable / lista de agentes disponibles
-
-Cursor no tiene un menú aparte llamado "Agentes", pero **tus agentes (reglas) aparecen en dos sitios**:
+## Dónde ver y usar agentes
 
 ### 1. Menú @ en el chat (desplegable al escribir @)
 
 En el chat o en Composer, escribe **`@`**. En el menú que aparece:
-- Busca la categoría **Rules** o las entradas que correspondan a tus reglas de proyecto.
-- Las reglas en `.cursor/rules/` suelen listarse por **nombre de archivo** (ej. `prompt-manager-agent`) o por la **description** del frontmatter (ej. "Agent: Gestión de prompts...").
-- Puedes escribir después de `@` algo como **`@prompt`** o **`@agent`** para filtrar y ver solo las reglas que coincidan.
+- Busca la categoría **Agents** o **Subagents** y las entradas de `.cursor/agents/`.
+- Los subagentes se listan por **nombre** (frontmatter `name`, ej. `prompt-manager`).
+- Puedes escribir después de `@` algo como **`@prompt`** para filtrar y ver el subagente de prompts.
 
-Al elegir una regla, Cursor la añade como contexto y el agente correspondiente queda "activo" para esa conversación.
+Al elegir un subagente, Cursor lo usa como contexto y el agente correspondiente queda activo para esa conversación.
 
-### 2. Cursor Settings → Rules, Commands (lista de todas las reglas)
+### 2. Cursor Settings → Agents (si aplica)
 
-Ahí ves **todas las reglas del proyecto** en una sola lista (como un desplegable/panel de agentes):
-
-1. Abre **Cursor Settings** (icono de engranaje o `Cmd/Ctrl + ,`).
-2. Entra en **Rules, Commands** (o busca "Rules" en la configuración).
-3. En **Project Rules** aparecen los archivos de `.cursor/rules/`, con su estado (si aplican siempre, por archivos o manualmente).
-
-Desde ahí puedes ver qué agentes/reglas tienes y activar o desactivar las que quieras. Para usarlas en el chat, sigue usando **@** y el nombre de la regla como en el punto anterior.
+En la configuración de Cursor puedes ver los agentes del proyecto. Los subagentes definidos en `.cursor/agents/` están disponibles para el workspace actual.
 
 ---
 
 ## Cómo indicar en el chat qué agente usar
 
-1. **Referenciar la regla con @**  
-   En el chat escribe `@` y luego el path de la regla del agente. Cursor incluirá esa regla como contexto en la conversación:
-   - Para el agente de prompts: **`@.cursor/rules/prompt-manager-agent.mdc`**
-   - También puedes escribir `@` y buscar por nombre (ej. "prompt-manager") si Cursor muestra las reglas en el menú.
+1. **Referenciar el subagente con @**  
+   En el chat escribe `@` y el nombre del agente. Por ejemplo:
+   - Para el agente de prompts: **`@prompt-manager`** (o buscar "prompt-manager" en el desplegable).
 
-2. **Tener abierto o en contexto un archivo que coincida con el agente**  
-   Si abres o añades al chat un archivo de la carpeta que usa el agente, Cursor puede aplicar la regla por el `globs`:
-   - Para el agente de prompts: abre o referencia algún archivo en **`context/prompts/`** (ej. `@context/prompts/README.md`). Así la regla `context/prompts/**` se activa.
+2. **Pedir la tarea en lenguaje natural**  
+   Escribe directamente lo que quieres, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que documente…"* o *"Añade un nuevo prompt en functional/prompts que…"*. Si invocas antes el subagente con `@prompt-manager`, el modelo seguirá sus instrucciones.
 
-3. **Pedir la tarea en lenguaje natural**  
-   Escribe directamente lo que quieres, por ejemplo: *"Usa el agente de prompts: genera un prompt para configurar ESLint en el monorepo"* o *"Añade un nuevo prompt en context/prompts que documente cómo se creó la app X"*. Si has referenciado antes la regla o un archivo de `context/prompts`, el modelo seguirá las instrucciones del agente.
-
-**Recomendación:** Para estar seguro de que se usa el agente de prompts, escribe en el chat **`@.cursor/rules/prompt-manager-agent.mdc`** y a continuación tu petición (ej. "Genera un prompt para…").
+**Recomendación:** Para usar el agente de prompts, escribe **`@prompt-manager`** y a continuación tu petición (ej. "Genera un prompt para…").
 
 ## Agentes disponibles
 
-### 1. Gestión de prompts (`context/prompts`)
+### 1. Gestión de prompts (`functional/prompts`) — subagente `prompt-manager`
 
-**Regla:** `.cursor/rules/prompt-manager-agent.mdc`  
-**Cuándo se activa:** Al trabajar en archivos bajo `context/prompts/**` o cuando el usuario pide añadir/generar un prompt en esa carpeta.
+**Archivo:** `.cursor/agents/prompt-manager.md`  
+**Cuándo usarlo:** Cuando quieras añadir, generar o documentar un prompt en `functional/prompts`, o reproducir una tarea/configuración ya hecha como prompt.
 
-**Responsabilidad:** Incorporar nuevos prompts en `context/prompts` con la estructura estándar del proyecto:
-- Archivo por prompt, nombre en kebab-case.
+**Responsabilidad:** Incorporar nuevos prompts en `functional/prompts` con la estructura estándar del proyecto:
+- Un archivo por prompt, nombre en kebab-case.
 - Secciones: título, descripción, bloque del prompt, resultado esperado, variantes (opcional).
-- Actualizar `context/prompts/README.md` con el nuevo archivo.
+- Actualizar `functional/prompts/README.md` con el nuevo archivo.
+- No inventar pasos; inspeccionar el repo si el prompt documenta algo ya hecho.
 
 **Frases que activan este agente (ejemplos):**
 - "Genera un prompt para…"
-- "Añade un prompt en context/prompts que…"
+- "Añade un prompt en functional/prompts que…"
 - "Incorpora un nuevo prompt que documente cómo…"
-- Abrir o referenciar archivos en `context/prompts/`.
+- "Usa el subagente prompt-manager para…"
 
 ---
 
-Para añadir más agentes, crea una nueva regla en `.cursor/rules/` (`.mdc` con `description` y `globs` o `alwaysApply`) y documenta aquí su nombre, regla y cuándo usarla.
+Para añadir más agentes, crea un nuevo archivo en `.cursor/agents/` (`.md` con frontmatter `name` y `description` y el cuerpo como system prompt) y documéntalo aquí.
