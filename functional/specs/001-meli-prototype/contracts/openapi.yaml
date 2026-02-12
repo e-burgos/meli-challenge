@@ -1,0 +1,161 @@
+openapi: 3.0.3
+info:
+  title: Products API — Prototipo Meli
+  description: API REST para listado de productos (home) y detalle de producto. Backend del prototipo 001-meli-prototype.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3333/api
+    description: Backend local (ajustar puerto según configuración)
+
+paths:
+  /products:
+    get:
+      summary: Listar todos los productos
+      description: Devuelve todos los productos para el listado del home. Persistencia en JSON/CSV en el backend.
+      operationId: listProducts
+      tags:
+        - products
+      responses:
+        '200':
+          description: Lista de productos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSummary'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /products/{productId}:
+    get:
+      summary: Obtener detalle de un producto
+      description: Devuelve el detalle completo de un producto por su identificador.
+      operationId: getProductById
+      tags:
+        - products
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: Identificador único del producto
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalle del producto
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '404':
+          description: Producto no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '400':
+          description: Parámetro inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    ProductSummary:
+      type: object
+      description: Resumen de producto para listado (home)
+      required:
+        - id
+        - title
+        - price
+      properties:
+        id:
+          type: string
+          example: MLA2009168328
+        title:
+          type: string
+        price:
+          type: number
+        currency_id:
+          type: string
+          example: ARS
+        thumbnail:
+          type: string
+          description: URL o ruta de imagen principal
+        condition:
+          type: string
+          example: Bueno reacondicionado
+
+    Product:
+      type: object
+      description: Producto completo para página de detalle
+      required:
+        - id
+        - title
+        - price
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        currency_id:
+          type: string
+        images:
+          type: array
+          items:
+            type: string
+        payment_methods:
+          type: array
+          items:
+            type: string
+        seller:
+          $ref: '#/components/schemas/Seller'
+        condition:
+          type: string
+        stock:
+          type: integer
+          nullable: true
+        ratings:
+          type: object
+          nullable: true
+          description: Valoraciones/reseñas (estructura libre para prototipo)
+
+    Seller:
+      type: object
+      required:
+        - id
+        - nickname
+      properties:
+        id:
+          type: string
+        nickname:
+          type: string
+        reputation:
+          type: string
+          nullable: true
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+          nullable: true
