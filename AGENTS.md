@@ -23,7 +23,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 
 1. **Referenciar el subagente con @**  
    En el chat escribe `@` y el nombre del agente. Por ejemplo:
-   - Para el agente de prompts: **`@prompt-manager`**; para frontend: **`@senior-frontend`**; para backend: **`@senior-backend`** (o buscar por nombre en el desplegable).
+   - Para el agente de prompts: **`@prompt-manager`**; para frontend: **`@senior-frontend`**; para backend: **`@senior-backend`**; para sincronizar tareas con GitHub: **`@gh-tasks-sync`** (o buscar por nombre en el desplegable).
 
 2. **Pedir la tarea en lenguaje natural**  
    Escribe directamente lo que quieres, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que documente…"* o *"Añade un nuevo prompt en functional/prompts que…"*. Si invocas antes el subagente con `@prompt-manager`, el modelo seguirá sus instrucciones.
@@ -74,6 +74,19 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 - "Configura Swagger en…" / "Documenta la API con OpenAPI…"
 - "Revisa el backend…" / "Añade validación a…"
 - "Genera una app Express en Nx…" / "Usa el subagente senior-backend para…"
+
+### 4. Sincronización de tareas con GitHub (Issues / Projects) — subagente `gh-tasks-sync`
+
+**Archivo:** `.cursor/agents/gh-tasks-sync.md`  
+**Cuándo usarlo:** Para sincronizar las tareas del repo (`functional/specs/*/tasks.md`) con GitHub Issues y mantener el estado alineado para GitHub Projects. Crear issues faltantes, actualizar labels (Phase, Status) y cerrar issues cuando la tarea está implementada.
+
+**Responsabilidad:** Leer tasks.md, emparejar tareas T001–T036 con issues existentes (por título `[TXXX]`), crear issues que falten con labels de fase, actualizar labels Phase/Status y cerrar issues cuando la tarea esté hecha. No puede añadir ítems al Project ni editar campos del Project (se hace en la interfaz de GitHub); deja los issues listos para que el Project refleje el estado.
+
+**Frases que activan este agente (ejemplos):**
+- "Sincroniza las tareas con GitHub" / "Actualiza GH Projects"
+- "Crea los issues que falten para las tareas" / "Marca T012 como hecho en GitHub"
+- "Revisa el estado del proyecto y actualiza GitHub"
+- "Usa el subagente gh-tasks-sync para…"
 
 ---
 
