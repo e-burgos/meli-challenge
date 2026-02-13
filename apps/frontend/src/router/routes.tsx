@@ -6,6 +6,8 @@ import { DesignSystem } from '../pages/DesignSystem';
 import { Prototype } from '../pages/Prototype';
 
 export const router = createBrowserRouter([
+  { path: 'design-system', element: <DesignSystem /> },
+  { path: 'prototype', element: <Prototype /> },
   {
     path: '/',
     element: (
@@ -16,8 +18,6 @@ export const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'product/:productId', element: <ProductDetail /> },
-      { path: 'design-system', element: <DesignSystem /> },
-      { path: 'prototype', element: <Prototype /> },
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },

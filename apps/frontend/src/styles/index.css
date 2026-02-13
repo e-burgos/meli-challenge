@@ -3,4 +3,12 @@
 /* Scan ui-components lib for Tailwind classes */
 @source "../../../libs/ui-components/src";
 
+/* Design tokens — Meli (design-spec-meli.md) */
+@theme {
+  --color-meli-yellow: #FFE600;
+  --color-meli-blue: #3483FA;
+  --color-meli-blue-dark: #2968C8;
+  --color-meli-green: #00A650;
+}
+
 /* Global styles */

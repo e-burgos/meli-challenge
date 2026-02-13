@@ -12,12 +12,12 @@ export default defineConfig(() => ({
     alias: {
       '@meli-challenge/ui-components': path.resolve(
         import.meta.dirname,
-        '../../libs/ui-components/src/index.ts'
+        '../../libs/ui-components/src/index.ts',
       ),
     },
   },
   server: {
-    port: 4200,
+    port: 3000,
     host: 'localhost',
     proxy: {
       '/api': { target: 'http://localhost:3333', changeOrigin: true },
