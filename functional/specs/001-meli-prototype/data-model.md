@@ -4,6 +4,8 @@
 **Phase**: 1  
 **Date**: 2025-02-12
 
+**Rediseño (2025-02-13):** Para soportar todas las pantallas de detalle tipo Meli (características, vendedor, envío, garantías, variantes, etc.) se definió un modelo ampliado con entidades separadas. Ver **[data-model-redesign.md](./data-model-redesign.md)**. El modelo que sigue abajo es el actual implementado; la migración al rediseño es el siguiente paso acordado.
+
 ## Entities
 
 ### Producto

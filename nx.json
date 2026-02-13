@@ -5,7 +5,10 @@
     "libsDir": "libs"
   },
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -32,7 +35,9 @@
           "watchDepsName": "watch-deps"
         }
       },
-      "exclude": ["libs/ui-components/**"]
+      "exclude": [
+        "libs/ui-components/**"
+      ]
     },
     {
       "plugin": "@nx/webpack/plugin",
@@ -55,8 +60,7 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      },
-      "exclude": ["apps/backend-e2e/**/*"]
+      }
     },
     {
       "plugin": "@nx/vite/plugin",
@@ -71,7 +75,9 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       },
-      "exclude": ["libs/ui-components/**"]
+      "exclude": [
+        "libs/ui-components/**"
+      ]
     },
     {
       "plugin": "@nx/vitest",
@@ -84,7 +90,9 @@
   ],
   "targetDefaults": {
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "generators": {

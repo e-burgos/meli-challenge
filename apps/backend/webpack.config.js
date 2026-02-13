@@ -4,8 +4,9 @@ const { join, dirname } = require('path');
 const swaggerUiDistPath = dirname(require.resolve('swagger-ui-dist/package.json'));
 
 module.exports = {
+  node: { __dirname: false },
   output: {
-    path: join(__dirname, 'dist'),
+    path: join(__dirname, '../../dist/backend'),
     clean: true,
     ...(process.env.NODE_ENV !== 'production' && {
       devtoolModuleFilenameTemplate: '[absolute-resource-path]',
@@ -19,6 +20,7 @@ module.exports = {
       tsConfig: './tsconfig.app.json',
       assets: [
         './src/assets',
+        './src/data',
         './src/openapi',
         {
           input: swaggerUiDistPath,

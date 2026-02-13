@@ -45,10 +45,10 @@
 
 ### Backend — Base
 
-- [ ] T006 [P] Definir tipos/interfaces **Product** y **Seller** en `apps/backend/src/` (ej. `types/product.ts`) según data-model.md y contracts/openapi.yaml.
-- [ ] T007 Crear mocks en `apps/backend/src/data/` como archivos **`.json`**: al menos `products.json` con 2–3 productos de ejemplo que cumplan el schema Product/Seller (data-model.md / openapi.yaml); el backend devolverá estos datos en desarrollo.
-- [ ] T008 Implementar servicio de lectura en `apps/backend/src/services/products.service.ts`: leer desde los JSON en `apps/backend/src/data/` (ej. `products.json`), devolver listado y detalle por id; manejar id inexistente (null o throw).
-- [ ] T009 Configurar Express en `apps/backend`: app, middleware (json, CORS), error handler global de 4 argumentos; puerto desde env.
+- [x] T006 [P] Definir tipos/interfaces **Product** y **Seller** en `apps/backend/src/` (ej. `types/product.ts`) según data-model.md y contracts/openapi.yaml.
+- [x] T007 Crear mocks en `apps/backend/src/data/` como archivos **`.json`**: al menos `products.json` con 2–3 productos de ejemplo que cumplan el schema Product/Seller (data-model.md / openapi.yaml); el backend devolverá estos datos en desarrollo.
+- [x] T008 Implementar servicio de lectura en `apps/backend/src/services/products.service.ts`: leer desde los JSON en `apps/backend/src/data/` (ej. `products.json`), devolver listado y detalle por id; manejar id inexistente (null o throw).
+- [x] T009 Configurar Express en `apps/backend`: app, middleware (json, CORS), error handler global de 4 argumentos; puerto desde env.
 - [x] T010 [P] Configurar rutas base `/api` y montar Swagger/OpenAPI con el spec de `contracts/openapi.yaml` (o generado desde código) en ruta `/api-docs` o similar.
 - [x] T011 Documentar API (OpenAPI) alineada con contracts; asegurar que GET /products y GET /products/:id estén descritos.
 

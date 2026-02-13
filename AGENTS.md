@@ -4,33 +4,65 @@ Este documento describe los **agentes y subagentes** configurados para tareas co
 
 ## Dónde ver y usar agentes
 
-### 1. Menú @ en el chat (desplegable al escribir @)
+Hay **dos formas** de invocar a cada agente; ambas están configuradas para los mismos subagentes.
 
-En el chat o en Composer, escribe **`@`**. En el menú que aparece:
+### 1. Comandos de barra `/` (recomendado para listado completo)
+
+En el chat escribe **`/`**. Aparecen todos los comandos, incluidos los que invocan a cada agente:
+
+| Comando       | Agente            |
+|---------------|-------------------|
+| `/senior-backend` | Senior Backend     |
+| `/senior-frontend` | Senior Frontend   |
+| `/senior-ux-designer` | Senior UX Designer |
+| `/orchestrator` | Orquestador        |
+| `/prompt-manager` | Gestión de prompts |
+| `/gh-tasks-sync` | Sincronizar tareas con GitHub |
+
+Ejemplo: escribe **`/senior-backend`** y luego tu petición (o **`/senior-backend añade validación al endpoint`**).
+
+### 2. Menú @ en el chat (desplegable al escribir @)
+
+En el chat o en Composer, escribe **`@`**. En el menú:
 - Busca la categoría **Agents** o **Subagents** y las entradas de `.cursor/agents/`.
-- Los subagentes se listan por **nombre** (frontmatter `name`, ej. `prompt-manager`).
-- Puedes escribir después de `@` algo como **`@prompt`** para filtrar y ver el subagente de prompts.
+- Los subagentes se listan por **nombre** (frontmatter `name`), ej. `senior-backend`, `prompt-manager`.
+- Escribe después de `@` algo como **`@senior-backend`** o **`@prompt`** para filtrar.
 
-Al elegir un subagente, Cursor lo usa como contexto y el agente correspondiente queda activo para esa conversación.
+Al elegir un subagente, Cursor lo usa como contexto para esa conversación.
 
-### 2. Cursor Settings → Agents (si aplica)
+### 3. Cursor Settings → Agents (si aplica)
 
-En la configuración de Cursor puedes ver los agentes del proyecto. Los subagentes definidos en `.cursor/agents/` están disponibles para el workspace actual.
+En la configuración de Cursor puedes ver los agentes del proyecto. Los subagentes en `.cursor/agents/` están disponibles en el workspace actual.
 
 ---
 
 ## Cómo indicar en el chat qué agente usar
 
-1. **Referenciar el subagente con @**  
-   En el chat escribe `@` y el nombre del agente. Por ejemplo:
-   - Para el agente de prompts: **`@prompt-manager`**; para frontend: **`@senior-frontend`**; para backend: **`@senior-backend`**; para sincronizar tareas con GitHub: **`@gh-tasks-sync`** (o buscar por nombre en el desplegable).
+1. **Con `/` (comandos)**  
+   Escribe **`/`** y elige el agente en el listado (ej. **`/senior-backend`**). Luego escribe tu petición. Así ves todos los agentes en un solo listado.
 
-2. **Pedir la tarea en lenguaje natural**  
-   Escribe directamente lo que quieres, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que documente…"* o *"Añade un nuevo prompt en functional/prompts que…"*. Si invocas antes el subagente con `@prompt-manager`, el modelo seguirá sus instrucciones.
+2. **Con `@` (menciones)**  
+   Escribe `@` y el nombre del agente, ej.: **`@senior-backend`**, **`@orchestrator`**, **`@prompt-manager`**, **`@senior-frontend`**, **`@senior-ux-designer`**, **`@gh-tasks-sync`** (o filtra escribiendo después de `@`).
 
-**Recomendación:** Para usar el agente de prompts, escribe **`@prompt-manager`** y a continuación tu petición (ej. "Genera un prompt para…").
+3. **Pedir la tarea en lenguaje natural**  
+   Escribe lo que quieres y, si hace falta, invoca antes el agente con `/` o `@`, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que…"* o **`/senior-backend añade validación al endpoint de productos`**.
+
+**Recomendación:** Si no ves un agente en el menú `@`, usa **`/`** y busca por nombre (ej. `/senior-backend`).
 
 ## Agentes disponibles
+
+### 0. Orquestador — subagente `orchestrator` (arquitecto, coordinador, solucionador)
+
+**Archivo:** `.cursor/agents/orchestrator.md`  
+**Cuándo usarlo:** Para "con qué seguimos", implementar fases completas (Phase 2 backend/frontend, US1, US2), coordinar backend y frontend, o desbloquear problemas. El orquestador tiene todo el contexto del plan y las tareas (tasks.md); puede **iniciar la implementación** aplicando las guías del agente correspondiente (senior-backend, senior-frontend) o indicar qué agente invocar; cuando es posible, **planifica y ejecuta en paralelo** (p. ej. backend base y frontend base).
+
+**Responsabilidad:** Actuar como **arquitecto** (diseño de alto nivel, alineación con plan y contratos), **coordinador** (quién hace qué, orden, paralelo) y **solucionador** (corregir errores, desalineaciones con tasks.md). Puede implementar él mismo o delegar con instrucción concreta.
+
+**Frases que activan este agente (ejemplos):**
+- "¿Con qué seguimos?" / "Siguiente paso según tasks.md"
+- "Continuemos con la implementación de Phase 2 backend" / "Implementar Phase 2 completo"
+- "Orquesta la implementación de US1" / "Coordina backend y frontend en paralelo"
+- "Usa el orquestador para…"
 
 ### 1. Gestión de prompts (`functional/prompts`) — subagente `prompt-manager`
 
@@ -61,6 +93,19 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 - "Configura Tailwind v4 en…" / "Ajusta Vite para…"
 - "Revisa el código frontend…" / "Mejora la accesibilidad de…"
 - "Usa el subagente senior-frontend para…"
+
+### Senior UX Designer — subagente `senior-ux-designer`
+
+**Archivo:** `.cursor/agents/senior-ux-designer.md`  
+**Cuándo usarlo:** Cuando necesites especificaciones de diseño alineadas con **Mercado Libre Argentina** (home y página de detalle de producto), design system (layout, botones, branding, imágenes, contenedores) o alineación pixel-perfect con Meli antes de que senior-frontend implemente la UI.
+
+**Responsabilidad:** Definir con exactitud el diseño de componentes clave (layout, botones, design system, branding, imágenes, contenedores) tomando como referencia [Mercado Libre Argentina](https://www.mercadolibre.com.ar/) (home) y [página de detalle de producto](https://www.mercadolibre.com.ar/celular-samsung-galaxy-a55-5g-2568gb-black-knox-color-negro/p/MLA46689590). Experto en Tailwind v4; produce specs (clases Tailwind, tokens, estructura) para que **@senior-frontend** implemente. Trabaja en conjunto con senior-frontend: UX define la spec, frontend implementa.
+
+**Frases que activan este agente (ejemplos):**
+- "Define el design system alineado con Mercado Libre" / "Especifica layout y componentes para el home tipo Meli"
+- "Quiero que el home y el detalle se vean como Mercado Libre Argentina"
+- "Dame las especificaciones de diseño (Tailwind) para la página de detalle"
+- "Usa el subagente senior-ux-designer para…"
 
 ### 3. Senior Backend Developer — subagente `senior-backend`
 

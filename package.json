@@ -6,7 +6,13 @@
     "build": "nx run-many -t build",
     "test": "nx run-many -t test",
     "dev:backend": "nx serve backend",
-    "dev:frontend": "nx serve frontend"
+    "dev:frontend": "nx serve frontend",
+    "build:frontend": "nx build frontend",
+    "build:backend": "nx build backend",
+    "test:frontend": "nx test frontend",
+    "test:backend": "nx test backend",
+    "lint:frontend": "nx lint frontend",
+    "lint:backend": "nx lint backend"
   },
   "private": true,
   "devDependencies": {
@@ -32,6 +38,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.3.0",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jest": "^30.0.0",
     "@types/node": "20.19.9",
@@ -64,11 +71,14 @@
   },
   "dependencies": {
     "axios": "^1.6.0",
+    "cors": "^2.8.6",
     "express": "^4.21.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "pino": "^9.5.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^7.13.0",
+    "swagger-ui-express": "^5.0.1",
     "zustand": "^5.0.11"
   }
 }

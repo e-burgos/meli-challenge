@@ -24,7 +24,7 @@ export default defineConfig(() => ({
   //  plugins: [],
   // },
   build: {
-    outDir: './dist',
+    outDir: '../../dist/frontend',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
