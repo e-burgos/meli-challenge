@@ -61,6 +61,14 @@
 
 **Checkpoint**: Backend sirve datos desde los mocks JSON en `apps/backend/src/data/`; frontend tiene routing, axios y react-query listos; ui-components consumibles desde frontend.
 
+### Design — Look & feel Meli (UX)
+
+**Purpose**: Entregable concreto del **@senior-ux-designer** para que el frontend implemente home y detalle alineados con Mercado Libre Argentina. T021 y T029 se implementan siguiendo esta spec.
+
+- [ ] **T015b [UX]** Producir **especificación de diseño** concreta y ejecutable para home y página de detalle, alineada con **Mercado Libre Argentina**. Referencias: [home Meli](https://www.mercadolibre.com.ar/), [detalle producto Meli](https://www.mercadolibre.com.ar/celular-samsung-galaxy-a55-5g-2568gb-black-knox-color-negro/p/MLA46689590). **Entregables** (sin Figma): (A) **Markdown**: `functional/specs/001-meli-prototype/design-spec-meli.md` — design system (tokens, tipografía, colores, espaciado, botones), layout home, layout detalle; todo en **Tailwind v4** para que @senior-frontend implemente en T021 y T029. (B) **Página Design System**: `apps/frontend/src/pages/DesignSystem.tsx` — documentación visual para desarrolladores (tokens, componentes, ejemplos) accesible en la app (ruta `/design-system`). (C) **Página Prototype**: `apps/frontend/src/pages/Prototype.tsx` — prototipo que muestra cómo usar cada componente (ejemplos de uso, variantes) accesible en la app (ruta `/prototype`). Con estos tres entregables el front puede implementar T021 y T029. Responsable: **@senior-ux-designer** (especs) y **@senior-frontend** (páginas React).
+
+**Checkpoint**: Documento de diseño disponible; T021 y T029 pueden ejecutarse siguiendo la spec.
+
 ---
 
 ## Phase 3: User Story 1 — Ver listado de productos en el home (Priority: P1) 🎯 MVP
@@ -79,7 +87,7 @@
 
 - [ ] T019 [US1] Implementar en backend **GET /api/products**: controlador que llama al servicio de listado; respuesta JSON según ProductSummary (contracts); manejo de errores (500 con mensaje).
 - [ ] T020 [US1] En frontend: hook o función que usa react-query (useQuery) para GET /products; clave de query estable; tipado según ProductSummary.
-- [ ] T021 [US1] Implementar página **Home** en `apps/frontend/src/pages/Home.tsx` (o equivalente): usar hook de listado; mostrar grid de productos usando Card de ui-components; diseño referencia Meli (layout, cabecera, grid); estado vacío si array vacío.
+- [ ] T021 [US1] Implementar página **Home** en `apps/frontend/src/pages/Home.tsx` (o equivalente): usar hook de listado; mostrar grid de productos usando Card de ui-components; **diseño según spec T015b (design-spec-meli)** — layout, cabecera, grid; estado vacío si array vacío.
 - [ ] T022 [US1] Enlaces desde cada ítem del listado a la ruta de detalle (ej. `/product/:id`) para preparar US2.
 - [ ] T023 [US1] Asegurar que la página home sea responsive (Tailwind: breakpoints, grid/flex).
 
@@ -103,7 +111,7 @@
 
 - [ ] T027 [US2] Implementar en backend **GET /api/products/:id**: controlador que valida id, llama al servicio getProductById; si no existe responder 404 con cuerpo Error; si existe 200 con Product (schema completo).
 - [ ] T028 [US2] En frontend: hook useQuery para GET /api/products/:id con productId como clave; manejar isError, error (incl. 404) para mostrar UI de error.
-- [ ] T029 [US2] Implementar página **ProductDetail** en `apps/frontend/src/pages/ProductDetail.tsx`: galería de imágenes, título, descripción, precio, métodos de pago, bloque vendedor, detalles adicionales; diseño referencia página producto Meli; responsive.
+- [ ] T029 [US2] Implementar página **ProductDetail** en `apps/frontend/src/pages/ProductDetail.tsx`: galería de imágenes, título, descripción, precio, métodos de pago, bloque vendedor, detalles adicionales; **diseño según spec T015b (design-spec-meli)**; responsive.
 - [ ] T030 [US2] Mostrar estado de error o mensaje cuando el producto no existe (404) o falla la red; enlace para volver al home.
 - [ ] T031 [US2] Asegurar que la página de detalle sea responsive y user-friendly.
 
@@ -129,8 +137,9 @@
 
 - **Phase 1 (Setup)**: Sin dependencias; puede iniciarse de inmediato.
 - **Phase 2 (Foundational)**: Depende de Phase 1; BLOQUEA el inicio de US1 y US2.
-- **Phase 3 (US1)**: Depende de Phase 2; puede iniciarse cuando foundational esté listo.
-- **Phase 4 (US2)**: Depende de Phase 2; puede hacerse en paralelo con US1 o después; la navegación desde home a detalle usa la ruta definida en T022.
+- **Phase 2.5 (Design Meli)**: T015b es opcional pero recomendado; T021 y T029 aplican la spec de T015b cuando exista.
+- **Phase 3 (US1)**: Depende de Phase 2; puede iniciarse cuando foundational esté listo; para look & feel Meli, conviene tener T015b antes de T021.
+- **Phase 4 (US2)**: Depende de Phase 2; puede hacerse en paralelo con US1 o después; la navegación desde home a detalle usa la ruta definida en T022; para look & feel Meli, T029 sigue la spec de T015b.
 - **Phase 5 (Polish)**: Depende de que US1 y US2 estén implementados.
 
 ### User Story Dependencies
@@ -140,9 +149,10 @@
 
 ### Within Each User Story
 
+- **Design (T015b)**: El UX designer produce `design-spec-meli.md`; frontend (T021, T029) implementa según esa spec.
 - Tests (T016–T018, T024–T026) pueden escribirse antes o en paralelo con la implementación; idealmente fallan hasta que la implementación esté lista.
 - Backend: tipos → servicio → controlador → ruta.
-- Frontend: api/hooks → página → integración con ui-components.
+- Frontend: api/hooks → página → integración con ui-components (y con design-spec cuando exista).
 
 ### Parallel Opportunities
 

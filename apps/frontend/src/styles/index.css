@@ -1,3 +1,6 @@
 @import 'tailwindcss';
 
+/* Scan ui-components lib for Tailwind classes */
+@source "../../../libs/ui-components/src";
+
 /* Global styles */

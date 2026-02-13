@@ -1,4 +1,5 @@
 /// <reference types='vitest' />
+import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
@@ -7,6 +8,14 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/apps/frontend',
+  resolve: {
+    alias: {
+      '@meli-challenge/ui-components': path.resolve(
+        import.meta.dirname,
+        '../../libs/ui-components/src/index.ts'
+      ),
+    },
+  },
   server: {
     port: 4200,
     host: 'localhost',

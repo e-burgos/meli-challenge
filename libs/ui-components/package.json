@@ -1,4 +1,9 @@
 {
   "name": "@meli-challenge/ui-components",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.0"
+  }
 }

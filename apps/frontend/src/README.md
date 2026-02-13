@@ -11,7 +11,7 @@
 | `queries/` | Configuración y hooks de React Query (o similar) para datos del servidor. |
 | `router/` | Configuración del enrutado (React Router). |
 | `store/` | Estado global (p. ej. Zustand) si se usa. |
-| `styles/` | Estilos adicionales o módulos CSS; el global está en `src/styles.css`. |
+| `styles/` | Estilos adicionales o módulos CSS; el global está en `src/styles/index.css`. |
 | `tests/` | Tests de integración o E2E de la app. |
 
 ## Componentes reutilizables

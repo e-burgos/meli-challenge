@@ -19,7 +19,8 @@
     "customConditions": ["@meli-challenge/root"],
     "baseUrl": ".",
     "paths": {
-      "@meli-challenge/*": ["libs/*", "apps/*", "tools/*"]
+      "@meli-challenge/*": ["libs/*", "apps/*", "tools/*"],
+      "@meli-challenge/ui-components": ["libs/ui-components/src/index.ts"]
     }
   }
 }
