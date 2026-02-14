@@ -1,6 +1,9 @@
 # meli-challenge
 
-Monorepo Nx con **pnpm**, alias `@meli-challenge`.
+Monorepo Nx con **pnpm**, alias `@meli-challenge`. Prototipo tipo Mercado Libre (home + detalle de producto): backend Express, frontend React/Vite, desplegado en Render + GitHub Pages.
+
+- **Ejecución local:** [run.md](run.md)
+- **Decisiones de stack (para MELI):** [DECISIONES-STACK-MELI.md](DECISIONES-STACK-MELI.md)
 
 ## Estructura
 
@@ -22,6 +25,16 @@ Monorepo Nx con **pnpm**, alias `@meli-challenge`.
 ```bash
 pnpm install
 ```
+
+## Cómo ejecutar
+
+Resumen; detalle en **[run.md](run.md)**.
+
+1. `pnpm install`
+2. Backend: `pnpm dev:backend` → http://localhost:3333/api (Swagger: /api/docs)
+3. Frontend: `pnpm dev:frontend` → http://localhost:3000
+
+El backend debe estar en marcha para que el home y el detalle carguen datos.
 
 ## Alias
 
