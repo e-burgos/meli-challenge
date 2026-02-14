@@ -1,0 +1,50 @@
+[
+  {
+    "id": "SELLER001",
+    "nickname": "TecnoStore Oficial",
+    "reputation": "Muy buena",
+    "badge": "MercadoLíder Platinum",
+    "sales_count": 1250,
+    "followers_count": 3400,
+    "product_count": 8,
+    "invoice_type": "Factura A",
+    "attention_rating": "Buena atención",
+    "delivery_rating": "Entrega a tiempo"
+  },
+  {
+    "id": "SELLER002",
+    "nickname": "Celulares Premium",
+    "reputation": null,
+    "badge": "MercadoLíder",
+    "sales_count": 580,
+    "followers_count": 1200,
+    "product_count": 4,
+    "invoice_type": "Factura B",
+    "attention_rating": "Buena atención",
+    "delivery_rating": "Entrega a tiempo"
+  },
+  {
+    "id": "SELLER003",
+    "nickname": "Gadgets Argentina",
+    "reputation": "Buena",
+    "badge": "MercadoLíder",
+    "sales_count": 890,
+    "followers_count": 2100,
+    "product_count": 5,
+    "invoice_type": "Factura A",
+    "attention_rating": "Buena atención",
+    "delivery_rating": "Entrega a tiempo"
+  },
+  {
+    "id": "SELLER004",
+    "nickname": "Audio y Más",
+    "reputation": "Muy buena",
+    "badge": "MercadoLíder Platinum",
+    "sales_count": 2100,
+    "followers_count": 5100,
+    "product_count": 7,
+    "invoice_type": "Factura A",
+    "attention_rating": "Buena atención",
+    "delivery_rating": "Entrega a tiempo"
+  }
+]

@@ -1,0 +1,14 @@
+# Render Blueprint: backend API only (optional; you can also configure via dashboard)
+# See DEPLOY-RENDER.md for full steps.
+services:
+  - type: web
+    name: meli-backend
+    runtime: node
+    buildCommand: pnpm install && pnpm run build:backend
+    startCommand: node dist/backend/main.js
+    buildFilter:
+      paths:
+        - apps/backend/**
+        - package.json
+        - pnpm-lock.yaml
+        - nx.json

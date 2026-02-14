@@ -24,6 +24,14 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# env (do not commit secrets)
+.env
+.env.*
+!.env.example
+
+# local PR draft (copy/paste only)
+PR-DESCRIPTION.md
+
 # misc
 /.sass-cache
 /connect.lock
@@ -45,3 +53,8 @@ Thumbs.db
 # Nx graph output
 graph.html
 static/
+
+test-output
+
+vite.config.*.timestamp*
+vitest.config.*.timestamp*

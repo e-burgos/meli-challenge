@@ -1,0 +1,326 @@
+[
+  {
+    "id": "MLA2009168328",
+    "seller_id": "SELLER001",
+    "title": "iPhone 13 128 GB Medianoche",
+    "description": "Pantalla Super Retina XDR de 6.1 pulgadas. Chip A15 Bionic. Sistema de cámara dual de 12 MP. Hasta 19 horas de reproducción de video.",
+    "price": 899999,
+    "currency_id": "ARS",
+    "original_price": 949999,
+    "images": [
+      "https://images.unsplash.com/photo-1637930030016-8a1cda6b3809?w=600&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1632582593898-949a5f8d76df?w=600&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1635669317784-fc0e891c7882?w=600&q=80&fit=crop"
+    ],
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Tarjeta de débito",
+      "Mercado Pago",
+      "Efectivo"
+    ],
+    "condition": "Nuevo",
+    "stock": 15,
+    "sold_quantity": 520,
+    "ratings": null,
+    "installments": { "quantity": 12, "amount": 74999.92 },
+    "highlights": [
+      "Pantalla Super Retina XDR 6.1\"",
+      "Chip A15 Bionic",
+      "Cámara dual 12 MP",
+      "Hasta 19 h de video"
+    ],
+    "warranty": "12 meses de garantía de fábrica",
+    "return_policy": "Devolución gratis. 30 días desde que lo recibís.",
+    "fulfillment_type": "FULL",
+    "shipping": {
+      "free_shipping": true,
+      "label": "Envío gratis por ser tu primera compra",
+      "same_day_delivery": true,
+      "pickup_available": true,
+      "pickup_available_day": "miércoles"
+    },
+    "other_offers_count": 5,
+    "other_offers_min_price": 899999
+  },
+  {
+    "id": "MLA3012345678",
+    "seller_id": "SELLER002",
+    "title": "Samsung Galaxy S24 256 GB Negro",
+    "description": "Pantalla Dynamic AMOLED 2X 6.2\". Exynos 2400. Triple cámara 50MP + 12MP + 10MP. Batería 4000 mAh.",
+    "price": 1249999,
+    "currency_id": "ARS",
+    "original_price": 1349999,
+    "price_without_taxes": 1033057,
+    "images": [
+      "https://images.pexels.com/photos/7568293/pexels-photo-7568293.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop",
+      "https://images.pexels.com/photos/4549416/pexels-photo-4549416.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop",
+      "https://images.pexels.com/photos/4132538/pexels-photo-4132538.jpeg?auto=compress&cs=tinysrgb&w=600&fit=crop"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago"],
+    "condition": "Nuevo",
+    "stock": 8,
+    "sold_quantity": 340,
+    "ratings": { "average": 4.5, "count": 120 },
+    "installments": { "quantity": 12, "amount": 104166.58 },
+    "highlights": [
+      "Memoria RAM 8 GB",
+      "Dispositivo liberado",
+      "Compatible con redes 5G",
+      "Pantalla de 6.2\"",
+      "Memoria interna 256 GB"
+    ],
+    "attributes": [
+      { "name": "Marca", "value": "Samsung", "category": "general" },
+      { "name": "Línea", "value": "Galaxy S", "category": "general" },
+      { "name": "Modelo", "value": "Galaxy S24 5G", "category": "general" },
+      { "name": "Color", "value": "Negro", "category": "general" },
+      { "name": "Memoria RAM", "value": "8 GB", "category": "memory" },
+      { "name": "Memoria interna", "value": "256 GB", "category": "memory" },
+      { "name": "Tamaño de pantalla", "value": "6.2\"", "category": "display" },
+      {
+        "name": "Resolución cámara trasera principal",
+        "value": "50 Mpx",
+        "category": "camera"
+      },
+      { "name": "Red móvil", "value": "5G", "category": "connectivity" }
+    ],
+    "variants": [
+      {
+        "id": "color",
+        "name": "Color",
+        "selected": "Negro",
+        "options": [
+          {
+            "value": "Negro",
+            "thumbnail_url": "https://images.pexels.com/photos/7568293/pexels-photo-7568293.jpeg?auto=compress&cs=tinysrgb&w=400&fit=crop"
+          },
+          {
+            "value": "Violeta",
+            "thumbnail_url": "https://images.pexels.com/photos/4549416/pexels-photo-4549416.jpeg?auto=compress&cs=tinysrgb&w=400&fit=crop"
+          }
+        ]
+      },
+      {
+        "id": "memory",
+        "name": "Memoria interna",
+        "selected": "256 GB",
+        "options": [{ "value": "128 GB" }, { "value": "256 GB" }]
+      }
+    ],
+    "warranty": "12 meses de garantía de fábrica",
+    "return_policy": "Devolución gratis. 30 días desde que lo recibís.",
+    "fulfillment_type": "FULL",
+    "shipping": {
+      "free_shipping": true,
+      "label": "Envío gratis por ser tu primera compra",
+      "same_day_delivery": false,
+      "pickup_available": true,
+      "pickup_available_day": "jueves"
+    },
+    "other_offers_count": 5,
+    "other_offers_min_price": 1249999
+  },
+  {
+    "id": "MLA4098765432",
+    "seller_id": "SELLER001",
+    "title": "Notebook Lenovo IdeaPad 15.6\" 8GB 256GB SSD",
+    "description": "Procesador Intel Core i5. Pantalla Full HD. Ideal para estudio y trabajo.",
+    "price": 649999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_708287-MLA99407911323_112025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_843871-MLA99407940719_112025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_643946-MLA99408135109_112025-F.webp"
+    ],
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Tarjeta de débito",
+      "Mercado Pago",
+      "Efectivo",
+      "Transferencia"
+    ],
+    "condition": "Bueno reacondicionado",
+    "stock": 3,
+    "ratings": null,
+    "installments": { "quantity": 12, "amount": 54166.58 },
+    "highlights": [
+      "Procesador Intel Core i5",
+      "Pantalla Full HD 15.6\"",
+      "256 GB SSD",
+      "8 GB RAM"
+    ],
+    "warranty": "6 meses de garantía",
+    "return_policy": "Devolución gratis. 30 días desde que lo recibís.",
+    "shipping": { "free_shipping": true, "label": "Envío gratis" }
+  },
+  {
+    "id": "MLA5000111111",
+    "seller_id": "SELLER001",
+    "title": "Auriculares inalámbricos Bluetooth 5.0 con cancelación de ruido",
+    "description": "Batería hasta 30 horas. Almohadillas memory foam. Incluye estuche rígido y cable auxiliar.",
+    "price": 89999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_927117-MLA100018690719_122025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_850646-MLA79486923140_102024-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Efectivo"],
+    "condition": "Nuevo",
+    "stock": 25,
+    "ratings": { "average": 4.7, "count": 89 },
+    "installments": { "quantity": 6, "amount": 14999.83 },
+    "shipping": {
+      "free_shipping": true,
+      "label": "Envío gratis por ser tu primera compra"
+    }
+  },
+  {
+    "id": "MLA5000222222",
+    "seller_id": "SELLER002",
+    "title": "Smartwatch con GPS y monitor de frecuencia cardíaca",
+    "description": "Resistencia al agua 5 ATM. Pantalla AMOLED 1.4\". Más de 100 modos deportivos. Batería 7 días.",
+    "price": 189999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_694247-MLA99453171474_112025-F.webp"
+    ],
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Tarjeta de débito",
+      "Mercado Pago"
+    ],
+    "condition": "Nuevo",
+    "stock": 12,
+    "ratings": null,
+    "installments": { "quantity": 6, "amount": 31666.5 },
+    "shipping": { "free_shipping": true, "label": "Envío gratis" }
+  },
+  {
+    "id": "MLA5000333333",
+    "seller_id": "SELLER003",
+    "title": "Tablet 10.1\" 64 GB WiFi",
+    "description": "Pantalla Full HD. Cámara frontal 5 MP y trasera 8 MP. Ideal para streaming y videollamadas.",
+    "price": 349999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_917730-MLA88401779533_072025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_791341-MLA95353755517_102025-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Efectivo"],
+    "condition": "Nuevo",
+    "stock": 7,
+    "ratings": { "average": 4.2, "count": 45 },
+    "installments": { "quantity": 6, "amount": 58333.17 },
+    "shipping": { "free_shipping": false }
+  },
+  {
+    "id": "MLA5000444444",
+    "seller_id": "SELLER003",
+    "title": "Teclado mecánico RGB switches Red",
+    "description": "Retroiluminación RGB. Cable desenrollable. Reposamuñecas magnético. Compatible PC y consolas.",
+    "price": 74999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_638504-MLA91881786651_092025-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Transferencia"],
+    "condition": "Nuevo",
+    "stock": 18,
+    "ratings": null,
+    "installments": { "quantity": 6, "amount": 12499.83 }
+  },
+  {
+    "id": "MLA5000555555",
+    "seller_id": "SELLER001",
+    "title": "Monitor 24\" Full HD 75 Hz",
+    "description": "Panel IPS. Conexiones HDMI y VGA. Bisel ultrafino. Ajuste de inclinación.",
+    "price": 159999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_898545-MLA103630441482_012026-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_879140-MLA104156446327_012026-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_913118-MLA103630057156_012026-F.webp"
+    ],
+    "payment_methods": [
+      "Tarjeta de crédito",
+      "Tarjeta de débito",
+      "Mercado Pago",
+      "Efectivo"
+    ],
+    "condition": "Nuevo",
+    "stock": 6,
+    "ratings": { "average": 4.6, "count": 203 },
+    "installments": { "quantity": 6, "amount": 26666.5 },
+    "shipping": { "free_shipping": true, "label": "Envío gratis" }
+  },
+  {
+    "id": "MLA5000666666",
+    "seller_id": "SELLER003",
+    "title": "Mouse inalámbrico ergonómico 1600 DPI",
+    "description": "Batería recargable. Silencioso. Compatible Windows y Mac. Diseño para diestros.",
+    "price": 24999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_936985-MLA99970185821_112025-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Efectivo"],
+    "condition": "Nuevo",
+    "stock": 50,
+    "ratings": null
+  },
+  {
+    "id": "MLA5000777777",
+    "seller_id": "SELLER001",
+    "title": "Webcam Full HD 1080p con micrófono integrado",
+    "description": "Enfoque automático. Soporte ajustable. Compatible con Zoom, Meet y Teams.",
+    "price": 54999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_881025-MLA99854185365_112025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_795241-MLA100855787252_122025-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago"],
+    "condition": "Nuevo",
+    "stock": 14,
+    "ratings": { "average": 4.4, "count": 67 },
+    "installments": { "quantity": 6, "amount": 9166.5 },
+    "shipping": { "free_shipping": true, "label": "Envío gratis" }
+  },
+  {
+    "id": "MLA5000888888",
+    "seller_id": "SELLER004",
+    "title": "Parlante Bluetooth portátil 20W",
+    "description": "Resistencia al agua IPX7. Batería 12 horas. Entrada auxiliar. Incluye correa.",
+    "price": 42999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_683809-MLA91496219126_092025-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_872604-MLA91496209062_092025-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Efectivo"],
+    "condition": "Nuevo",
+    "stock": 22,
+    "ratings": null,
+    "installments": { "quantity": 6, "amount": 7166.5 },
+    "shipping": { "free_shipping": true, "label": "Envío gratis" }
+  },
+  {
+    "id": "MLA5000999999",
+    "seller_id": "SELLER002",
+    "title": "Base de carga inalámbrica 15W compatible Qi",
+    "description": "Carga rápida para iPhone y Samsung. LED indicador. Protección contra sobrecalentamiento.",
+    "price": 32999,
+    "currency_id": "ARS",
+    "images": [
+      "https://http2.mlstatic.com/D_NQ_NP_2X_857340-MLA105383744048_012026-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_844255-MLA105981177203_012026-F.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_663458-MLA105982135515_012026-F.webp"
+    ],
+    "payment_methods": ["Tarjeta de crédito", "Mercado Pago"],
+    "condition": "Nuevo",
+    "stock": 30,
+    "ratings": { "average": 4.3, "count": 156 },
+    "installments": { "quantity": 6, "amount": 5499.83 },
+    "shipping": { "free_shipping": true }
+  }
+]

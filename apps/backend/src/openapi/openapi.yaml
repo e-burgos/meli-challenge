@@ -1,0 +1,384 @@
+openapi: 3.0.3
+info:
+  title: Products API — Prototipo Meli
+  description: API REST para listado de productos (home), detalle de producto y vendedores. Backend del prototipo 001-meli-prototype. Modelo de datos rediseñado (data-model-redesign.md).
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3333/api
+    description: Backend local (ajustar puerto según configuración)
+
+paths:
+  /products:
+    get:
+      summary: Listar productos
+      description: Devuelve resúmenes de productos para el listado (home). Opcionalmente filtra por seller_id para "productos del vendedor".
+      operationId: listProducts
+      tags:
+        - products
+      parameters:
+        - name: seller_id
+          in: query
+          required: false
+          description: Filtrar por ID de vendedor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Lista de productos (ProductSummary)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductSummary'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /products/{productId}:
+    get:
+      summary: Obtener detalle de un producto
+      description: Devuelve el detalle completo de un producto por id, con el vendedor resuelto (objeto seller).
+      operationId: getProductById
+      tags:
+        - products
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: Identificador único del producto
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalle del producto (incluye seller)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDetail'
+        '404':
+          description: Producto no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '400':
+          description: Parámetro inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sellers:
+    get:
+      summary: Listar vendedores
+      description: Devuelve todos los vendedores.
+      operationId: listSellers
+      tags:
+        - sellers
+      responses:
+        '200':
+          description: Lista de vendedores
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Seller'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sellers/{sellerId}:
+    get:
+      summary: Obtener detalle de un vendedor
+      description: Devuelve el detalle de un vendedor por id (para "Ir a la página del vendedor").
+      operationId: getSellerById
+      tags:
+        - sellers
+      parameters:
+        - name: sellerId
+          in: path
+          required: true
+          description: Identificador único del vendedor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Detalle del vendedor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Seller'
+        '404':
+          description: Vendedor no encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '400':
+          description: Parámetro inválido
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Error interno del servidor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    ProductSummary:
+      type: object
+      description: Resumen de producto para listado (home, carruseles)
+      required:
+        - id
+        - title
+        - price
+      properties:
+        id:
+          type: string
+          example: MLA2009168328
+        title:
+          type: string
+        price:
+          type: number
+        currency_id:
+          type: string
+          example: ARS
+        original_price:
+          type: number
+          nullable: true
+        thumbnail:
+          type: string
+          description: URL de imagen principal
+        condition:
+          type: string
+        seller_id:
+          type: string
+          description: ID del vendedor (para filtrar productos del vendedor)
+        installments:
+          $ref: '#/components/schemas/Installments'
+        free_shipping:
+          type: boolean
+          nullable: true
+        shipping_label:
+          type: string
+          nullable: true
+
+    Installments:
+      type: object
+      description: Información de cuotas (ej. 12 cuotas de $ X)
+      properties:
+        quantity:
+          type: integer
+        amount:
+          type: number
+
+    ProductDetail:
+      type: object
+      description: Producto completo para página de detalle (con seller resuelto)
+      required:
+        - id
+        - title
+        - price
+        - seller
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        price:
+          type: number
+        currency_id:
+          type: string
+          nullable: true
+        original_price:
+          type: number
+          nullable: true
+        price_without_taxes:
+          type: number
+          nullable: true
+        images:
+          type: array
+          items:
+            type: string
+        payment_methods:
+          type: array
+          items:
+            type: string
+          nullable: true
+        condition:
+          type: string
+          nullable: true
+        stock:
+          type: integer
+          nullable: true
+        sold_quantity:
+          type: integer
+          nullable: true
+        ratings:
+          $ref: '#/components/schemas/ProductRatings'
+        installments:
+          $ref: '#/components/schemas/Installments'
+        highlights:
+          type: array
+          items:
+            type: string
+          nullable: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductAttribute'
+          nullable: true
+        variants:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductVariant'
+          nullable: true
+        warranty:
+          type: string
+          nullable: true
+        return_policy:
+          type: string
+          nullable: true
+        fulfillment_type:
+          type: string
+          nullable: true
+        shipping:
+          $ref: '#/components/schemas/ProductShipping'
+        other_offers_count:
+          type: integer
+          nullable: true
+        other_offers_min_price:
+          type: number
+          nullable: true
+        seller:
+          $ref: '#/components/schemas/Seller'
+
+    ProductRatings:
+      type: object
+      properties:
+        average:
+          type: number
+        count:
+          type: integer
+
+    ProductAttribute:
+      type: object
+      description: Atributo para sección Características (name/value, opcional category)
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+        category:
+          type: string
+          nullable: true
+
+    VariantOption:
+      type: object
+      properties:
+        value:
+          type: string
+        thumbnail_url:
+          type: string
+          nullable: true
+
+    ProductVariant:
+      type: object
+      description: Selector de variante (color, memoria, etc.)
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        selected:
+          type: string
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariantOption'
+
+    ProductShipping:
+      type: object
+      properties:
+        free_shipping:
+          type: boolean
+          nullable: true
+        label:
+          type: string
+          nullable: true
+        same_day_delivery:
+          type: boolean
+          nullable: true
+        pickup_available:
+          type: boolean
+          nullable: true
+        pickup_available_day:
+          type: string
+          nullable: true
+
+    Seller:
+      type: object
+      description: Vendedor (entidad independiente en sellers.json)
+      required:
+        - id
+        - nickname
+      properties:
+        id:
+          type: string
+        nickname:
+          type: string
+        reputation:
+          type: string
+          nullable: true
+        badge:
+          type: string
+          nullable: true
+        sales_count:
+          type: integer
+          nullable: true
+        followers_count:
+          type: integer
+          nullable: true
+        product_count:
+          type: integer
+          nullable: true
+        invoice_type:
+          type: string
+          nullable: true
+        attention_rating:
+          type: string
+          nullable: true
+        delivery_rating:
+          type: string
+          nullable: true
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+          nullable: true
