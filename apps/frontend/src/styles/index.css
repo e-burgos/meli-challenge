@@ -1,7 +1,37 @@
 @import 'tailwindcss';
 
-/* Scan ui-components lib for Tailwind classes */
-@source "../../../libs/ui-components/src";
+/* Scan ui-components lib for Tailwind classes - monorepo libs */
+@source "../../../../libs/ui-components/src/**/*.{ts,tsx}";
+
+/* Proxima Nova — from apps/frontend/public/fonts */
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Proxima%20Nova%20Light/Proxima%20Nova%20Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Proxima%20Nova%20Regular/Proxima%20Nova%20Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Proxima%20Nova%20Semibold/Proxima%20Nova%20Semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Proxima%20Nova%20Extrabold/Proxima%20Nova%20Extrabold.ttf') format('truetype');
+}
 
 /* Design tokens — Meli (design-spec-meli.md) */
 @theme {
@@ -9,6 +39,18 @@
   --color-meli-blue: #3483FA;
   --color-meli-blue-dark: #2968C8;
   --color-meli-green: #00A650;
+  /** Page background (body, main). design-spec §1.1 */
+  --color-page-bg: #EDEDED;
+  /** Container max-width for max-w-7xl (layout width). */
+  --container-7xl: 1200px;
+  /** Container max-width for max-w-2xl (e.g. search bar, banners). */
+  --container-2xl: 600px;
+  /* Typography: Proxima Nova + system fallbacks (design-spec §1.2) */
+  --font-sans: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Global styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-page-bg);
+}

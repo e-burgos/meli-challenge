@@ -8,7 +8,10 @@ import type {
 } from '../types';
 import { getSellerById } from './sellers.service';
 
-const PRODUCTS_FILE = path.join(__dirname, 'data', 'products.json');
+const PRODUCTS_FILE =
+  process.env.NODE_ENV === 'test'
+    ? path.join(process.cwd(), 'src', 'data', 'products.json')
+    : path.join(__dirname, 'data', 'products.json');
 
 function loadProducts(): Product[] {
   const raw = fs.readFileSync(PRODUCTS_FILE, 'utf-8');
@@ -65,6 +68,7 @@ export function getProductById(productId: string): ProductDetail | null {
       `Seller not found for product ${found.id}: seller_id=${found.seller_id}`
     );
   }
+  const images = Array.isArray(found.images) ? found.images : [];
   const detail: ProductDetail = {
     id: found.id,
     title: found.title,
@@ -73,7 +77,7 @@ export function getProductById(productId: string): ProductDetail | null {
     currency_id: found.currency_id ?? undefined,
     original_price: found.original_price ?? undefined,
     price_without_taxes: found.price_without_taxes ?? undefined,
-    images: found.images,
+    images,
     payment_methods: found.payment_methods ?? undefined,
     condition: found.condition ?? undefined,
     stock: found.stock ?? undefined,

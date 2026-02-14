@@ -15,7 +15,7 @@
 
 ## Path Conventions
 
-- **Frontend**: `apps/frontend/src/`
+- **Frontend**: `apps/frontend/src/` (p. ej. `api/`, `queries/`, `router/`, `store/`, `pages/`, `styles/`).
 - **Backend**: `apps/backend/src/`
 - **Backend mocks**: Datos de desarrollo en `apps/backend/src/data/` como archivos **`.json`** (ej. `products.json`); el backend sirve esos mocks en desarrollo; misma estructura de datos que los contratos OpenAPI.
 - **Lib ui-components**: `libs/ui-components/src/`
@@ -54,10 +54,10 @@
 
 ### Frontend — Base
 
-- [ ] T012 [P] Configurar cliente **axios** en `apps/frontend/src/api/` (instancia con baseURL hacia el backend); tipar respuestas según contracts.
-- [ ] T013 [P] Configurar **react-query** (QueryClient, QueryClientProvider) en el árbol de la app frontend.
-- [ ] T014 Configurar enrutado en la app frontend: ruta home (ej. `/`) y ruta detalle (ej. `/product/:id`); estructura de páginas en `apps/frontend/src/pages/` o equivalente.
-- [ ] T015 [P] Crear en `libs/ui-components` componentes base reutilizables: al menos Button, Card, Layout (header/content); exportar desde `libs/ui-components/src/index.ts`; el frontend los importa desde `@meli-challenge/ui-components`.
+- [x] T012 [P] Configurar cliente **axios** en `apps/frontend/src/api/` (instancia con baseURL hacia el backend); tipar respuestas según contracts.
+- [x] T013 [P] Configurar **react-query** (QueryClient, QueryClientProvider) en el árbol de la app frontend.
+- [x] T014 Configurar enrutado en la app frontend: ruta home (ej. `/`) y ruta detalle (ej. `/product/:id`); estructura de páginas en `apps/frontend/src/pages/` o equivalente.
+- [x] T015 [P] Crear en `libs/ui-components` componentes base reutilizables: al menos Button, Card, Layout (header/content); exportar desde `libs/ui-components/src/index.ts`; el frontend los importa desde `@meli-challenge/ui-components`.
 
 **Checkpoint**: Backend sirve datos desde los mocks JSON en `apps/backend/src/data/`; frontend tiene routing, axios y react-query listos; ui-components consumibles desde frontend.
 
@@ -79,17 +79,17 @@
 
 ### Tests for User Story 1
 
-- [ ] T016 [P] [US1] Test unitario o de contrato para GET /api/products en `apps/backend`: respuesta 200, cuerpo array de productos con campos esperados (id, title, price, etc.).
-- [ ] T017 [P] [US1] Test del servicio de productos (backend): dado los mocks en `apps/backend/src/data/*.json`, listProducts devuelve array; getProductById(id) devuelve producto o null según exista.
-- [ ] T018 [US1] Test de la página home (frontend): renderiza listado (mock de react-query o MSW); muestra estado loading/error si aplica; al menos un snapshot o aserciones de contenido.
+- [x] T016 [P] [US1] Test unitario o de contrato para GET /api/products en `apps/backend`: respuesta 200, cuerpo array de productos con campos esperados (id, title, price, etc.).
+- [x] T017 [P] [US1] Test del servicio de productos (backend): dado los mocks en `apps/backend/src/data/*.json`, listProducts devuelve array; getProductById(id) devuelve producto o null según exista.
+- [x] T018 [US1] Test de la página home (frontend): renderiza listado (mock de react-query o MSW); muestra estado loading/error si aplica; al menos un snapshot o aserciones de contenido.
 
 ### Implementation for User Story 1
 
-- [ ] T019 [US1] Implementar en backend **GET /api/products**: controlador que llama al servicio de listado; respuesta JSON según ProductSummary (contracts); manejo de errores (500 con mensaje).
-- [ ] T020 [US1] En frontend: hook o función que usa react-query (useQuery) para GET /products; clave de query estable; tipado según ProductSummary.
-- [ ] T021 [US1] Implementar página **Home** en `apps/frontend/src/pages/Home.tsx` (o equivalente): usar hook de listado; mostrar grid de productos usando Card de ui-components; **diseño según spec T015b (design-spec-meli)** — layout, cabecera, grid; estado vacío si array vacío.
-- [ ] T022 [US1] Enlaces desde cada ítem del listado a la ruta de detalle (ej. `/product/:id`) para preparar US2.
-- [ ] T023 [US1] Asegurar que la página home sea responsive (Tailwind: breakpoints, grid/flex).
+- [x] T019 [US1] Implementar en backend **GET /api/products**: controlador que llama al servicio de listado; respuesta JSON según ProductSummary (contracts); manejo de errores (500 con mensaje).
+- [x] T020 [US1] En frontend: hook o función que usa react-query (useQuery) para GET /products; clave de query estable; tipado según ProductSummary.
+- [x] T021 [US1] Implementar página **Home** en `apps/frontend/src/pages/Home.tsx` (o equivalente): usar hook de listado; mostrar grid de productos usando Card de ui-components; **diseño según spec T015b (design-spec-meli)** — layout, cabecera, grid; estado vacío si array vacío.
+- [x] T022 [US1] Enlaces desde cada ítem del listado a la ruta de detalle (ej. `/product/:id`) para preparar US2.
+- [x] T023 [US1] Asegurar que la página home sea responsive (Tailwind: breakpoints, grid/flex).
 
 **Checkpoint**: User Story 1 completada; home muestra listado de productos; se puede navegar a detalle por enlace.
 
@@ -103,17 +103,17 @@
 
 ### Tests for User Story 2
 
-- [ ] T024 [P] [US2] Test de contrato para GET /api/products/:id en backend: 200 con cuerpo Product cuando id existe; 404 cuando id no existe; 400 si id inválido (si aplica).
-- [ ] T025 [P] [US2] Test del servicio getProductById: retorna producto cuando existe; retorna null o lanza cuando no existe (y el controlador traduce a 404).
-- [ ] T026 [US2] Test de la página de detalle (frontend): renderiza detalle con datos mock; muestra estado de error cuando falla la query (ej. 404).
+- [x] T024 [P] [US2] Test de contrato para GET /api/products/:id en backend: 200 con cuerpo Product cuando id existe; 404 cuando id no existe; 400 si id inválido (si aplica).
+- [x] T025 [P] [US2] Test del servicio getProductById: retorna producto cuando existe; retorna null o lanza cuando no existe (y el controlador traduce a 404).
+- [x] T026 [US2] Test de la página de detalle (frontend): renderiza detalle con datos mock; muestra estado de error cuando falla la query (ej. 404).
 
 ### Implementation for User Story 2
 
-- [ ] T027 [US2] Implementar en backend **GET /api/products/:id**: controlador que valida id, llama al servicio getProductById; si no existe responder 404 con cuerpo Error; si existe 200 con Product (schema completo).
-- [ ] T028 [US2] En frontend: hook useQuery para GET /api/products/:id con productId como clave; manejar isError, error (incl. 404) para mostrar UI de error.
-- [ ] T029 [US2] Implementar página **ProductDetail** en `apps/frontend/src/pages/ProductDetail.tsx`: galería de imágenes, título, descripción, precio, métodos de pago, bloque vendedor, detalles adicionales; **diseño según spec T015b (design-spec-meli)**; responsive.
-- [ ] T030 [US2] Mostrar estado de error o mensaje cuando el producto no existe (404) o falla la red; enlace para volver al home.
-- [ ] T031 [US2] Asegurar que la página de detalle sea responsive y user-friendly.
+- [x] T027 [US2] Implementar en backend **GET /api/products/:id**: controlador que valida id, llama al servicio getProductById; si no existe responder 404 con cuerpo Error; si existe 200 con Product (schema completo).
+- [x] T028 [US2] En frontend: hook useQuery para GET /api/products/:id con productId como clave; manejar isError, error (incl. 404) para mostrar UI de error.
+- [x] T029 [US2] Implementar página **ProductDetail** en `apps/frontend/src/pages/ProductDetail.tsx`: galería de imágenes, título, descripción, precio, métodos de pago, bloque vendedor, detalles adicionales; **diseño según spec T015b (design-spec-meli)**; responsive.
+- [x] T030 [US2] Mostrar estado de error o mensaje cuando el producto no existe (404) o falla la red; enlace para volver al home.
+- [x] T031 [US2] Asegurar que la página de detalle sea responsive y user-friendly.
 
 **Checkpoint**: User Stories 1 y 2 completadas; home y detalle funcionando; errores manejados.
 

@@ -2,7 +2,10 @@ import * as fs from 'fs';
 import * as path from 'path';
 import type { Seller } from '../types';
 
-const SELLERS_FILE = path.join(__dirname, 'data', 'sellers.json');
+const SELLERS_FILE =
+  process.env.NODE_ENV === 'test'
+    ? path.join(process.cwd(), 'src', 'data', 'sellers.json')
+    : path.join(__dirname, 'data', 'sellers.json');
 
 function loadSellers(): Seller[] {
   const raw = fs.readFileSync(SELLERS_FILE, 'utf-8');

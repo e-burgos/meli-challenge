@@ -13,7 +13,7 @@ import {
 
 export function DesignSystem() {
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen bg-page-bg">
       <div className="max-w-4xl mx-auto px-4 py-6 space-y-10">
         <header>
           <h1 className="text-2xl font-semibold text-gray-800">Design System — Meli</h1>
@@ -85,8 +85,12 @@ export function DesignSystem() {
               <p className="text-xs text-gray-600 mt-1">Text primary gray-800</p>
             </div>
             <div>
-              <div className="aspect-square rounded-md border border-gray-200 bg-gray-100" />
-              <p className="text-xs text-gray-600 mt-1">Background page gray-100</p>
+              <div
+                className="aspect-square rounded-md border border-gray-200"
+                style={{ backgroundColor: 'var(--color-page-bg)' }}
+              />
+              <p className="text-xs text-gray-600 mt-1">Page background (--color-page-bg) #EDEDED</p>
+              <p className="text-xs text-gray-500">Body, main</p>
             </div>
             <div>
               <div className="aspect-square rounded-md border border-gray-200 bg-white" />
@@ -114,7 +118,7 @@ export function DesignSystem() {
         {/* Spacing */}
         <section className="bg-white border border-gray-200 rounded-lg p-6">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Espaciado</h2>
-          <p className="text-sm text-gray-600 mb-3">Escala Tailwind: px-4 (1rem), py-6 (1.5rem), gap-4 (1rem). Container: max-w-7xl mx-auto px-4 md:px-6.</p>
+          <p className="text-sm text-gray-600 mb-3">Escala Tailwind: px-4 (1rem), py-6 (1.5rem), gap-4 (1rem). Container: max-w-7xl mx-auto px-4 md:px-6 (7xl = 1200px).</p>
           <div className="flex flex-wrap gap-2">
             <span className="inline-block w-4 h-4 bg-gray-300 rounded" title="4" />
             <span className="inline-block w-8 h-4 bg-gray-300 rounded" title="8" />

@@ -41,7 +41,7 @@ Definir en CSS (Tailwind v4 `@theme` o variables) y usar vía clases o `var()`.
 | **Meli Yellow** | `#FFE600` | Header, CTA primario, acentos | `bg-[#FFE600]`, `--color-meli-yellow` en @theme |
 | **Meli Blue** | `#3483FA` | Links, íconos, acciones secundarias | `text-[#3483FA]`, `--color-meli-blue` |
 | **Meli Blue Dark** | `#2968C8` | Hover links, botón secundario hover | `hover:bg-[#2968C8]` |
-| **Background page** | `#EDEDED` o `gray-100` | Fondo del main (listado) | `bg-gray-100` |
+| **Page background** | `#EDEDED` | Fondo del body y del main (listado, detalle) | `var(--color-page-bg)` en body; `bg-[var(--color-page-bg)]` o `bg-gray-100` |
 | **Background card** | `#FFFFFF` | Cards, bloques, header | `bg-white` |
 | **Text primary** | `#333333` o `gray-800` | Títulos, precio | `text-gray-800` |
 | **Text secondary** | `#666666` o `gray-600` | Subtítulos, cuerpo | `text-gray-600` |
@@ -57,8 +57,11 @@ Definir en CSS (Tailwind v4 `@theme` o variables) y usar vía clases o `var()`.
   --color-meli-blue: #3483FA;
   --color-meli-blue-dark: #2968C8;
   --color-meli-green: #00A650;
+  --color-page-bg: #EDEDED;
 }
 ```
+
+- **Body:** `background-color: var(--color-page-bg);` aplicado en `body` para fondo de página (#EDEDED).
 
 Uso: `bg-[var(--color-meli-yellow)]`, `text-[var(--color-meli-blue)]`, etc.
 
@@ -291,7 +294,7 @@ Todos estos componentes deben aparecer en **Prototype.tsx** con ejemplos de uso.
 - **sm** (640px): 3 columnas en grid.
 - **md** (768px): 4 columnas en grid.
 - **lg** (1024px): 5 columnas en grid; detalle en 2 columnas (galería | bloque compra).
-- **xl** (1280px): mismo que lg; `max-w-7xl` ya limita el ancho.
+- **xl** (1200px): mismo que lg; `max-w-7xl` ya limita el ancho (`--container-7xl: 1200px`).
 
 Clases: `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5` (home). Detalle: `grid-cols-1 lg:grid-cols-[1fr_400px]`.
 
@@ -317,7 +320,7 @@ Clases: `grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5` (home). Detal
 - **Amarillo**: `#FFE600` — header, CTA "Comprar".
 - **Azul**: `#3483FA` — links, "Volver", íconos.
 - **Verde**: `#00A650` — precio en listado, "Envío gratis".
-- **Contenedor**: `max-w-7xl mx-auto px-4` (o `px-4 md:px-6`).
+- **Contenedor**: `max-w-7xl mx-auto px-4` (o `px-4 md:px-6`). `--container-7xl: 1200px` en @theme.
 - **Card listado**: blanco, borde sutil, imagen cuadrada, título 2 líneas, precio destacado.
 
 Con esta spec, @senior-frontend puede implementar T021 (Home), T029 (ProductDetail), DesignSystem.tsx y Prototype.tsx sin ambigüedad.

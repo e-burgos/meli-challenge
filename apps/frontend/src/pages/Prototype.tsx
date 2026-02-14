@@ -8,7 +8,7 @@ import { Button, Card } from '@meli-challenge/ui-components';
 
 export function Prototype() {
   return (
-    <main className="min-h-screen bg-gray-100">
+    <main className="min-h-screen bg-page-bg">
       <div className="max-w-4xl mx-auto px-4 py-6 space-y-10">
         <header>
           <h1 className="text-2xl font-semibold text-gray-800">Prototype — Todos los componentes</h1>
