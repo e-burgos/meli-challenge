@@ -50,6 +50,8 @@ Guía para desplegar solo el **backend** (API Express) del monorepo en [Render](
 9. **Create Web Service**  
    Render hará el primer build y deploy. La URL quedará tipo `https://meli-backend.onrender.com`.
 
+**Ejemplo en este repo:** backend desplegado en `https://meli-challenge-bh6a.onrender.com` (API en `/api`, docs en `/api/docs`).
+
 ## Rutas de la API
 
 Tras el deploy:

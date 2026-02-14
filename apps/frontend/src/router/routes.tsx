@@ -5,7 +5,13 @@ import { ProductDetail } from '../pages/ProductDetail';
 import { DesignSystem } from '../pages/DesignSystem';
 import { Prototype } from '../pages/Prototype';
 
-export const router = createBrowserRouter([
+const basename =
+  typeof import.meta.env?.BASE_URL === 'string'
+    ? import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
+    : '/';
+
+export const router = createBrowserRouter(
+  [
   { path: 'design-system', element: <DesignSystem /> },
   { path: 'prototype', element: <Prototype /> },
   {
@@ -21,4 +27,6 @@ export const router = createBrowserRouter([
       { path: '*', element: <Navigate to="/" replace /> },
     ],
   },
-]);
+  ],
+  { basename }
+);

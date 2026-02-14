@@ -5,8 +5,11 @@ import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import tailwindcss from '@tailwindcss/vite';
 
+const basePath = process.env.VITE_BASE_PATH ?? '/';
+
 export default defineConfig(() => ({
   root: import.meta.dirname,
+  base: basePath,
   cacheDir: '../../node_modules/.vite/apps/frontend',
   resolve: {
     alias: {
