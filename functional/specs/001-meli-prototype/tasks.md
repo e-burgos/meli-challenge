@@ -123,7 +123,7 @@
 
 **Purpose**: run.md, documentación, cobertura ≥80%, validación quickstart.
 
-- [ ] T032 Crear **run.md** en la raíz del repositorio: instrucciones para instalar dependencias (`pnpm install`), ejecutar backend (`pnpm nx serve backend`), ejecutar frontend (`pnpm nx serve frontend`), y cualquier prerrequisito (Node 18+, pnpm 9+).
+- [x] T032 Crear **run.md** en la raíz del repositorio: instrucciones para instalar dependencias (`pnpm install`), ejecutar backend (`pnpm nx serve backend`), ejecutar frontend (`pnpm nx serve frontend`), y cualquier prerrequisito (Node 18+, pnpm 9+).
 - [ ] T033 Revisar y completar documentación de código (APIs, módulos, lógica no obvia) en backend y frontend según FR-010.
 - [ ] T034 Ejecutar suite de tests (backend + frontend + lib) y verificar cobertura ≥80%; añadir tests unitarios/integración donde falte para alcanzar el umbral.
 - [ ] T035 [P] Validar flujo con quickstart.md: seguir pasos de ejecución y comprobar que home y detalle funcionan; corregir run.md si hace falta.

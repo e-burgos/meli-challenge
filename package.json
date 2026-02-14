@@ -14,7 +14,8 @@
     "test:frontend": "nx test frontend",
     "test:backend": "nx test backend",
     "lint:frontend": "nx lint frontend",
-    "lint:backend": "nx lint backend"
+    "lint:backend": "nx lint backend",
+    "start": "node dist/backend/main.js"
   },
   "private": true,
   "devDependencies": {
