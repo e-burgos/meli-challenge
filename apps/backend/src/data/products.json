@@ -40,7 +40,8 @@
       "pickup_available_day": "miércoles"
     },
     "other_offers_count": 5,
-    "other_offers_min_price": 899999
+    "other_offers_min_price": 899999,
+    "suggested_terms": ["iphone 13", "iphone 12", "celular apple"]
   },
   {
     "id": "MLA3012345678",
@@ -69,6 +70,7 @@
       "Pantalla de 6.2\"",
       "Memoria interna 256 GB"
     ],
+    "suggested_terms": ["samsung galaxy", "galaxy s24", "celular samsung"],
     "attributes": [
       { "name": "Marca", "value": "Samsung", "category": "general" },
       { "name": "Línea", "value": "Galaxy S", "category": "general" },
@@ -149,6 +151,7 @@
       "256 GB SSD",
       "8 GB RAM"
     ],
+    "suggested_terms": ["notebook lenovo", "ideapad", "laptop"],
     "warranty": "6 meses de garantía",
     "return_policy": "Devolución gratis. 30 días desde que lo recibís.",
     "shipping": { "free_shipping": true, "label": "Envío gratis" }
@@ -169,6 +172,7 @@
     "stock": 25,
     "ratings": { "average": 4.7, "count": 89 },
     "installments": { "quantity": 6, "amount": 14999.83 },
+    "suggested_terms": ["auriculares bluetooth", "cancelación de ruido", "auriculares"],
     "shipping": {
       "free_shipping": true,
       "label": "Envío gratis por ser tu primera compra"
@@ -193,6 +197,7 @@
     "stock": 12,
     "ratings": null,
     "installments": { "quantity": 6, "amount": 31666.5 },
+    "suggested_terms": ["smartwatch", "reloj gps", "monitor cardíaco"],
     "shipping": { "free_shipping": true, "label": "Envío gratis" }
   },
   {
@@ -211,6 +216,7 @@
     "stock": 7,
     "ratings": { "average": 4.2, "count": 45 },
     "installments": { "quantity": 6, "amount": 58333.17 },
+    "suggested_terms": ["tablet 10", "tablet wifi", "tablet"],
     "shipping": { "free_shipping": false }
   },
   {
@@ -227,7 +233,8 @@
     "condition": "Nuevo",
     "stock": 18,
     "ratings": null,
-    "installments": { "quantity": 6, "amount": 12499.83 }
+    "installments": { "quantity": 6, "amount": 12499.83 },
+    "suggested_terms": ["teclado mecánico", "teclado rgb", "switches red"]
   },
   {
     "id": "MLA5000555555",
@@ -251,6 +258,7 @@
     "stock": 6,
     "ratings": { "average": 4.6, "count": 203 },
     "installments": { "quantity": 6, "amount": 26666.5 },
+    "suggested_terms": ["monitor 24", "monitor full hd", "monitor ips"],
     "shipping": { "free_shipping": true, "label": "Envío gratis" }
   },
   {
@@ -266,7 +274,8 @@
     "payment_methods": ["Tarjeta de crédito", "Mercado Pago", "Efectivo"],
     "condition": "Nuevo",
     "stock": 50,
-    "ratings": null
+    "ratings": null,
+    "suggested_terms": ["mouse inalámbrico", "mouse ergonómico", "mouse 1600 dpi"]
   },
   {
     "id": "MLA5000777777",
@@ -284,6 +293,7 @@
     "stock": 14,
     "ratings": { "average": 4.4, "count": 67 },
     "installments": { "quantity": 6, "amount": 9166.5 },
+    "suggested_terms": ["webcam full hd", "webcam 1080p", "cámara web"],
     "shipping": { "free_shipping": true, "label": "Envío gratis" }
   },
   {
@@ -302,6 +312,7 @@
     "stock": 22,
     "ratings": null,
     "installments": { "quantity": 6, "amount": 7166.5 },
+    "suggested_terms": ["parlante bluetooth", "parlante portátil", "parlante 20w"],
     "shipping": { "free_shipping": true, "label": "Envío gratis" }
   },
   {
@@ -321,6 +332,7 @@
     "stock": 30,
     "ratings": { "average": 4.3, "count": 156 },
     "installments": { "quantity": 6, "amount": 5499.83 },
+    "suggested_terms": ["base de carga inalámbrica", "carga qi", "cargador inalámbrico"],
     "shipping": { "free_shipping": true }
   }
 ]

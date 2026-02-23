@@ -272,6 +272,12 @@ components:
         other_offers_min_price:
           type: number
           nullable: true
+        suggested_terms:
+          type: array
+          description: Suggested search terms for "También puede interesarte" header
+          items:
+            type: string
+          nullable: true
         seller:
           $ref: '#/components/schemas/Seller'
 

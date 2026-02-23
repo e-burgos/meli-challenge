@@ -31,7 +31,7 @@ export function Home() {
   if (isPending) {
     return (
       <main className="flex flex-col bg-page-bg">
-        <div className="max-w-7xl w-full mx-auto px-4 pt-4 pb-6">
+        <div className="max-w-7xl w-full mx-auto px-4 py-6">
           <PromoBanner imageUrl={bannerPublicidadUrl} alt="Oferta" className="mb-6 rounded overflow-hidden" />
 
           {/* Section cards - like Meli home */}

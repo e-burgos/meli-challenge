@@ -104,7 +104,7 @@ export function ProductDetail() {
   if (productId == null || productId.trim() === '') {
     return (
       <main className="flex-1 bg-page-bg">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-7xl mx-auto px-4 xl:px-0 py-6">
           <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-8 text-center max-w-md mx-auto">
             <p className="text-gray-700 font-medium">ID de producto no válido.</p>
             <p className="text-sm text-gray-500 mt-2">
@@ -129,7 +129,7 @@ export function ProductDetail() {
       error != null && error instanceof Error ? error.message : 'Error desconocido';
     return (
       <main className="flex-1 bg-page-bg">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-7xl mx-auto px-4 xl:px-0 py-6">
           <div
             className="bg-white rounded-lg border border-gray-200 shadow-sm p-8 text-center max-w-md mx-auto"
             role="alert"
@@ -207,9 +207,9 @@ export function ProductDetail() {
 
   return (
     <main className="flex-1 bg-page-bg">
-      <div className="max-w-7xl mx-auto py-6">
+      <div className="max-w-7xl mx-auto px-4 xl:px-0 py-6">
         {/* Page header: "También puede interesarte", breadcrumbs (left), Vender uno igual | Compartir (right) */}
-        <ProductDetailPageHeader breadcrumbItems={breadcrumbItems} />
+        <ProductDetailPageHeader breadcrumbItems={breadcrumbItems} suggestedTerms={product.suggested_terms ?? []} />
 
         {/* White container: gallery | product info | purchase info */}
         <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-4 lg:p-6">
