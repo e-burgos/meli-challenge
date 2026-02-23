@@ -24,14 +24,20 @@ export function ProductDetailPageHeader({
   return (
     <div className="mb-4">
       {/* Title + suggested terms */}
-      <h2 className="text-sm font-semibold text-gray-800 mb-2">
-        También puede interesarte:
-      </h2>
-      {suggestedTerms.length > 0 && (
-        <p className="text-xs text-gray-500 mb-3">
-          {suggestedTerms.join(' - ')}
-        </p>
-      )}
+      <div className="flex flex-wrap items-center gap-1 mb-2">
+        <h2 className="text-sm font-semibold text-gray-800 ">
+          También puede interesarte:
+        </h2>
+        {suggestedTerms.length > 0 ? (
+          <p className="text-xs text-gray-500">
+            {suggestedTerms.join(' - ')}
+          </p>
+        ) : (
+          <p className="text-xs text-gray-500">
+            No hay sugerencias de productos
+          </p>
+        )}
+      </div>
       {/* Breadcrumbs (left) and actions (right) — same row */}
       <div className="flex flex-wrap items-center justify-between gap-2">
         <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1 text-sm">

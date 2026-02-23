@@ -71,6 +71,8 @@ export interface Product {
   shipping?: ProductShipping | null;
   other_offers_count?: number | null;
   other_offers_min_price?: number | null;
+  /** Suggested search terms for "También puede interesarte" (product detail header). */
+  suggested_terms?: string[] | null;
 }
 
 /**
@@ -100,6 +102,8 @@ export interface ProductDetail {
   shipping?: ProductShipping | null;
   other_offers_count?: number | null;
   other_offers_min_price?: number | null;
+  /** Suggested search terms for "También puede interesarte" (product detail header). */
+  suggested_terms?: string[] | null;
   seller: Seller;
 }
 

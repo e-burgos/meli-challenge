@@ -43,7 +43,7 @@ Guía para desplegar solo el **backend** (API Express) del monorepo en [Render](
 7. **Plan**  
    Elegir “Free” (el servicio se duerme tras ~15 min sin tráfico) o un plan de pago si quieres que esté siempre activo.
 
-8. **Variables de entorno (opcional)**  
+8. **Variables de entorno (opcional)**
    - `PORT`: Render lo asigna; no hace falta definirlo.
    - Añade aquí cualquier otra variable que use el backend.
 

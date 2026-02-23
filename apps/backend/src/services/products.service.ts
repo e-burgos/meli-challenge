@@ -93,6 +93,7 @@ export function getProductById(productId: string): ProductDetail | null {
     shipping: found.shipping ?? undefined,
     other_offers_count: found.other_offers_count ?? undefined,
     other_offers_min_price: found.other_offers_min_price ?? undefined,
+    suggested_terms: found.suggested_terms ?? undefined,
     seller,
   };
   return detail;

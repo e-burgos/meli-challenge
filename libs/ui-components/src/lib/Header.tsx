@@ -17,8 +17,8 @@ const NAV_LINKS: NavLink[] = [
   { label: 'Supermercado', to: '#' },
   { label: 'Moda', to: '#' },
   { label: 'Mercado Play', to: '#', badge: 'Gratis' },
-  { label: 'Vender', to: '#' },
-  { label: 'Ayuda', to: '#' },
+  { label: 'Vender', to: 'design-system' },
+  { label: 'Ayuda', to: '/prototype' },
 ];
 
 /**

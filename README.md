@@ -2,8 +2,10 @@
 
 Monorepo Nx con **pnpm**, alias `@meli-challenge`. Prototipo tipo Mercado Libre (home + detalle de producto): backend Express, frontend React/Vite, desplegado en Render + GitHub Pages.
 
-- **Ejecución local:** [run.md](run.md)
-- **Decisiones de stack (para MELI):** [DECISIONES-STACK-MELI.md](DECISIONES-STACK-MELI.md)
+- **Ejecución local:** [run.md](docs/RUN.md)
+- **Decisiones de stack (para MELI):** [DECISIONES-STACK-MELI.md](docs/DECISIONES-STACK-MELI.md)
+- **Deploy del backend en Render:** [DEPLOY-RENDER.md](docs/DEPLOY-RENDER.md)
+- **Deploy del frontend en GitHub Pages:** [DEPLOY-GH-PAGES.md](docs/DEPLOY-GH-PAGES.md)
 
 ## Estructura
 

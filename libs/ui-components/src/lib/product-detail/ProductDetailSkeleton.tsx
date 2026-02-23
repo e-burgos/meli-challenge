@@ -6,7 +6,7 @@
 export function ProductDetailSkeleton() {
   return (
     <main className="flex-1 bg-page-bg">
-      <div className="max-w-7xl mx-auto py-6">
+      <div className="max-w-7xl mx-auto px-4 xl:px-0 py-6">
         {/* Header skeleton: title + breadcrumbs row + actions */}
         <div className="mb-4">
           <div className="h-4 bg-gray-200 rounded animate-pulse w-48 mb-2" />
