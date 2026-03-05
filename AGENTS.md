@@ -10,20 +10,21 @@ Hay **dos formas** de invocar a cada agente; ambas están configuradas para los 
 
 En el chat escribe **`/`**. Aparecen todos los comandos, incluidos los que invocan a cada agente:
 
-| Comando       | Agente            |
-|---------------|-------------------|
-| `/senior-backend` | Senior Backend     |
-| `/senior-frontend` | Senior Frontend   |
-| `/senior-ux-designer` | Senior UX Designer |
-| `/orchestrator` | Orquestador        |
-| `/prompt-manager` | Gestión de prompts |
-| `/gh-tasks-sync` | Sincronizar tareas con GitHub |
+| Comando               | Agente                        |
+| --------------------- | ----------------------------- |
+| `/senior-backend`     | Senior Backend                |
+| `/senior-frontend`    | Senior Frontend               |
+| `/senior-ux-designer` | Senior UX Designer            |
+| `/orchestrator`       | Orquestador                   |
+| `/prompt-manager`     | Gestión de prompts            |
+| `/gh-tasks-sync`      | Sincronizar tareas con GitHub |
 
 Ejemplo: escribe **`/senior-backend`** y luego tu petición (o **`/senior-backend añade validación al endpoint`**).
 
 ### 2. Menú @ en el chat (desplegable al escribir @)
 
 En el chat o en Composer, escribe **`@`**. En el menú:
+
 - Busca la categoría **Agents** o **Subagents** y las entradas de `.cursor/agents/`.
 - Los subagentes se listan por **nombre** (frontmatter `name`), ej. `senior-backend`, `prompt-manager`.
 - Escribe después de `@` algo como **`@senior-backend`** o **`@prompt`** para filtrar.
@@ -45,7 +46,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
    Escribe `@` y el nombre del agente, ej.: **`@senior-backend`**, **`@orchestrator`**, **`@prompt-manager`**, **`@senior-frontend`**, **`@senior-ux-designer`**, **`@gh-tasks-sync`** (o filtra escribiendo después de `@`).
 
 3. **Pedir la tarea en lenguaje natural**  
-   Escribe lo que quieres y, si hace falta, invoca antes el agente con `/` o `@`, por ejemplo: *"Usa el subagente prompt-manager para generar un prompt que…"* o **`/senior-backend añade validación al endpoint de productos`**.
+   Escribe lo que quieres y, si hace falta, invoca antes el agente con `/` o `@`, por ejemplo: _"Usa el subagente prompt-manager para generar un prompt que…"_ o **`/senior-backend añade validación al endpoint de productos`**.
 
 **Recomendación:** Si no ves un agente en el menú `@`, usa **`/`** y busca por nombre (ej. `/senior-backend`).
 
@@ -59,6 +60,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Responsabilidad:** Actuar como **arquitecto** (diseño de alto nivel, alineación con plan y contratos), **coordinador** (quién hace qué, orden, paralelo) y **solucionador** (corregir errores, desalineaciones con tasks.md). Puede implementar él mismo o delegar con instrucción concreta.
 
 **Frases que activan este agente (ejemplos):**
+
 - "¿Con qué seguimos?" / "Siguiente paso según tasks.md"
 - "Continuemos con la implementación de Phase 2 backend" / "Implementar Phase 2 completo"
 - "Orquesta la implementación de US1" / "Coordina backend y frontend en paralelo"
@@ -70,12 +72,14 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Cuándo usarlo:** Cuando quieras añadir, generar o documentar un prompt en `functional/prompts`, o reproducir una tarea/configuración ya hecha como prompt.
 
 **Responsabilidad:** Incorporar nuevos prompts en `functional/prompts` con la estructura estándar del proyecto:
+
 - Un archivo por prompt, nombre en kebab-case.
 - Secciones: título, descripción, bloque del prompt, resultado esperado, variantes (opcional).
 - Actualizar `functional/prompts/README.md` con el nuevo archivo.
 - No inventar pasos; inspeccionar el repo si el prompt documenta algo ya hecho.
 
 **Frases que activan este agente (ejemplos):**
+
 - "Genera un prompt para…"
 - "Añade un prompt en functional/prompts que…"
 - "Incorpora un nuevo prompt que documente cómo…"
@@ -89,6 +93,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Stack y responsabilidad:** Experto en React, TypeScript, Node, Tailwind CSS v4, Nx, Vite y pnpm. Aplica buenas prácticas: TypeScript estricto, componentes funcionales y hooks, Vite con Nx, Tailwind v4 (CSS-first, @source en monorepo), pnpm workspaces, accesibilidad, tests y código mantenible.
 
 **Frases que activan este agente (ejemplos):**
+
 - "Implementa el componente…" / "Refactoriza la pantalla…"
 - "Configura Tailwind v4 en…" / "Ajusta Vite para…"
 - "Revisa el código frontend…" / "Mejora la accesibilidad de…"
@@ -102,6 +107,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Responsabilidad:** Definir con exactitud el diseño de componentes clave (layout, botones, design system, branding, imágenes, contenedores) tomando como referencia [Mercado Libre Argentina](https://www.mercadolibre.com.ar/) (home) y [página de detalle de producto](https://www.mercadolibre.com.ar/celular-samsung-galaxy-a55-5g-2568gb-black-knox-color-negro/p/MLA46689590). Experto en **Tailwind v4**; produce design-spec-meli.md y specs para que **@senior-frontend** implemente DesignSystem.tsx, Prototype.tsx y páginas Home/ProductDetail. Sin Figma; entregables en markdown + páginas React de documentación y prototipo.
 
 **Frases que activan este agente (ejemplos):**
+
 - "Define el design system alineado con Mercado Libre" / "Especifica layout y componentes para el home tipo Meli"
 - "Quiero que el home y el detalle se vean como Mercado Libre Argentina"
 - "Dame las especificaciones de diseño (Tailwind) para la página de detalle"
@@ -115,6 +121,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Stack y responsabilidad:** Experto en Node.js, Express, TypeScript, Swagger/OpenAPI, validación (express-validator, Zod, JSON Schema), Nx (`@nx/node`, `@nx/express`), pnpm. Aplica buenas prácticas: TypeScript strict, rutas y controladores separados, middleware (auth, validación, error handling), documentación OpenAPI alineada con código, capa de servicios y repos, tests y uso correcto de Nx (generadores, targets, dependencias, proxies).
 
 **Frases que activan este agente (ejemplos):**
+
 - "Crea la API de…" / "Añade el endpoint…"
 - "Configura Swagger en…" / "Documenta la API con OpenAPI…"
 - "Revisa el backend…" / "Añade validación a…"
@@ -128,6 +135,7 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 **Responsabilidad:** Leer tasks.md, emparejar tareas T001–T036 con issues existentes (por título `[TXXX]`), crear issues que falten con labels de fase, actualizar labels Phase/Status y cerrar issues cuando la tarea esté hecha. No puede añadir ítems al Project ni editar campos del Project (se hace en la interfaz de GitHub); deja los issues listos para que el Project refleje el estado.
 
 **Frases que activan este agente (ejemplos):**
+
 - "Sincroniza las tareas con GitHub" / "Actualiza GH Projects"
 - "Crea los issues que falten para las tareas" / "Marca T012 como hecho en GitHub"
 - "Revisa el estado del proyecto y actualiza GitHub"
@@ -136,3 +144,27 @@ En la configuración de Cursor puedes ver los agentes del proyecto. Los subagent
 ---
 
 Para añadir más agentes, crea un nuevo archivo en `.cursor/agents/` (`.md` con frontmatter `name` y `description` y el cuerpo como system prompt) y documéntalo aquí.
+
+<!-- nx configuration start-->
+<!-- Leave the start & end comments to automatically receive updates. -->
+
+## General Guidelines for working with Nx
+
+- For navigating/exploring the workspace, invoke the `nx-workspace` skill first - it has patterns for querying projects, targets, and dependencies
+- When running tasks (for example build, lint, test, e2e, etc.), always prefer running the task through `nx` (i.e. `nx run`, `nx run-many`, `nx affected`) instead of using the underlying tooling directly
+- Prefix nx commands with the workspace's package manager (e.g., `pnpm nx build`, `npm exec nx test`) - avoids using globally installed CLI
+- You have access to the Nx MCP server and its tools, use them to help the user
+- For Nx plugin best practices, check `node_modules/@nx/<plugin>/PLUGIN.md`. Not all plugins have this file - proceed without it if unavailable.
+- NEVER guess CLI flags - always check nx_docs or `--help` first when unsure
+
+## Scaffolding & Generators
+
+- For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools
+
+## When to use nx_docs
+
+- USE for: advanced config options, unfamiliar flags, migration guides, plugin configuration, edge cases
+- DON'T USE for: basic generator syntax (`nx g @nx/react:app`), standard commands, things you already know
+- The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
+
+<!-- nx configuration end-->
