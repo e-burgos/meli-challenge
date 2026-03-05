@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 288" fill="none" aria-hidden="true">
+  <!-- Fondo degradado verde oscuro → verde claro (tema neumáticos/automotor) -->
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1440" y2="288" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a3a2a"/>
+      <stop offset="100%" stop-color="#2d6a4f"/>
+    </linearGradient>
+    <!-- Neumático decorativo SVG path -->
+    <radialGradient id="tire" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#444"/>
+      <stop offset="60%" stop-color="#222"/>
+      <stop offset="100%" stop-color="#111"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fondo -->
+  <rect width="1440" height="288" fill="url(#bg3)"/>
+
+  <!-- Neumático decorativo derecho -->
+  <g transform="translate(1050, 144)" opacity="0.18">
+    <circle cx="0" cy="0" r="180" fill="url(#tire)"/>
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#555" stroke-width="10"/>
+    <circle cx="0" cy="0" r="70" fill="#333"/>
+    <circle cx="0" cy="0" r="50" fill="#666"/>
+    <!-- Radios del rin -->
+    <line x1="0" y1="-140" x2="0" y2="-70" stroke="#999" stroke-width="8"/>
+    <line x1="0" y1="70" x2="0" y2="140" stroke="#999" stroke-width="8"/>
+    <line x1="-140" y1="0" x2="-70" y2="0" stroke="#999" stroke-width="8"/>
+    <line x1="70" y1="0" x2="140" y2="0" stroke="#999" stroke-width="8"/>
+    <line x1="-99" y1="-99" x2="-49" y2="-49" stroke="#999" stroke-width="8"/>
+    <line x1="49" y1="49" x2="99" y2="99" stroke="#999" stroke-width="8"/>
+    <line x1="99" y1="-99" x2="49" y2="-49" stroke="#999" stroke-width="8"/>
+    <line x1="-49" y1="49" x2="-99" y2="99" stroke="#999" stroke-width="8"/>
+  </g>
+
+  <!-- Neumático decorativo pequeño izquierdo -->
+  <g transform="translate(200, 244)" opacity="0.1">
+    <circle cx="0" cy="0" r="90" fill="url(#tire)"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#555" stroke-width="6"/>
+    <circle cx="0" cy="0" r="35" fill="#555"/>
+  </g>
+
+  <!-- Badge "NUEVO" -->
+  <rect x="80" y="56" width="90" height="30" rx="4" fill="#FFE600"/>
+  <text x="125" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1a1a1a" text-anchor="middle" letter-spacing="1">NUEVO</text>
+
+  <!-- Título principal -->
+  <text x="80" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF">Neumáticos al mejor precio</text>
+
+  <!-- Subtítulo -->
+  <text x="80" y="172" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="400" fill="#a8d5b5">Con cuotas sin interés • Envío a todo el país</text>
+
+  <!-- CTA button shape -->
+  <rect x="80" y="200" width="200" height="44" rx="8" fill="#FFE600"/>
+  <text x="180" y="227" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1a1a1a" text-anchor="middle">Ver neumáticos</text>
+</svg>

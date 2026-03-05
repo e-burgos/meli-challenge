@@ -17,10 +17,9 @@
     "strict": true,
     "target": "es2022",
     "customConditions": ["@meli-challenge/root"],
-    "baseUrl": ".",
     "paths": {
-      "@meli-challenge/*": ["libs/*", "apps/*", "tools/*"],
-      "@meli-challenge/ui-components": ["libs/ui-components/src/index.ts"]
+      "@meli-challenge/*": ["./libs/*", "./apps/*", "./tools/*"],
+      "@meli-challenge/ui-components": ["./libs/ui-components/src/index.ts"]
     }
   }
 }
